@@ -1,10 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation} from 'react-router-dom';
 import './Navbar.scss';
 import logo from '../assets/logo.png';
 
+// Navigation text component
+function Navtext({text, to}) {
+  const location = useLocation();        // get current URL
+  const isActive = location.pathname === to; // check if link matches
+  return (
+    <div className="Navtext-container">
+      <Link to={to} className={`Navigation-Link ${isActive ? 'active' : ''}`}
+      >
+          {text}
+          </Link>
+      <div className="Navtext-underline"></div>
+    </div>
+  );
+}
 
-
+// Navbar component
 function Navbar() {
   return (
     <nav className="Navbar">
@@ -14,20 +28,14 @@ function Navbar() {
         </Link>
 
         <div className="nav-links">
-          <Link to="/" className="text-white hover:text-gray-300 mx-2">
-          HOME
-          </Link>
-          <Link to="/About" className="text-white hover:text-gray-300 mx-2">
-          ABOUT
-          </Link>
-          <Link to="/Project" className="text-white hover:text-gray-300 mx-2">
-          PROJECT
-          </Link>
-          <Link to="/Contact" className="text-white hover:text-gray-300 mx-2">
-          CONTACT
-          </Link>
+          <Navtext text="HOME" to="/" />
+          <Navtext text="ABOUT" to="/about" />
+          <Navtext text="PROJECT" to="/project" />
+          <Navtext text="CONTACT" to="/contact" />
         </div>
       </div>
     </nav>
   );
-}export default Navbar;
+}
+
+export default Navbar;

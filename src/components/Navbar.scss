@@ -28,8 +28,40 @@
     align-items: center;
 }
 
-.nav-links a {
+// Default Variant Styles
+.Navtext-container .Navigation-Link {
     @extend .desktop-nav-link-text-default;
     color: var(--colors-secondary-color-1);
+    padding: 4px 0px;
 }
 
+.Navtext-container .Navtext-underline {
+    width: 0px;
+    height: 1.8px;
+    
+    background-color: var(--colors-secondary-color-1);
+    transform-origin: center center;
+    margin-top: 4px;
+}
+
+// Hover Variant Styles
+.Navtext-container .Navigation-Link:hover {
+    color: var(--colors-primary-color-4);
+    transition: color 0.3s ease-in-out;
+}
+
+.Navtext-container .Navigation-Link:hover + .Navtext-underline {
+    width: 100%;
+    transition: width 0.3s ease-in-out;
+    background-color: var(--colors-primary-color-4);
+}
+
+// Active Variant Style
+.Navtext-container .Navigation-Link.active {
+    color: var(--colors-primary-color-4); // active text color
+}
+
+.Navtext-container .Navigation-Link.active + .Navtext-underline {
+    width: 100%;                 // make underline visible
+    background-color: #ffffff;   // underline color for active
+}
