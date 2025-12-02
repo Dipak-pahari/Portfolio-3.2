@@ -1,4 +1,4 @@
-@import '../index.scss';
+@use '../index' as *;
 
 .Navbar {
     position: fixed;
@@ -64,4 +64,67 @@
 .Navtext-container .Navigation-Link.active + .Navtext-underline {
     width: 100%;                 // make underline visible
     background-color: #ffffff;   // underline color for active
+}
+
+//Tablet
+@media (max-width: 1024px){
+    .Navbar {
+    height: 72px;
+    display: flex;
+    align-items: center;
+    padding: 12px 36px;
+    background-color: #000000;
+    backdrop-filter: blur(5px);
+    z-index: 100;
+    opacity: 0.85;
+}
+
+.nav-links {
+    display: flex;
+    gap: 48px;
+    align-items: center;
+}
+
+// Default Variant Styles
+.Navtext-container .Navigation-Link {
+    font-family: "Blinker", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0%;
+}
+
+.Navtext-container .Navtext-underline {
+    height: 1.4px;
+}
+
+}
+
+// Mobile
+@media (max-width:580px){
+    .Navbar {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    padding: 8px 24px;
+    background-color: #000000;
+    backdrop-filter: blur(5px);
+    z-index: 100;
+    opacity: 0.85;
+}
+
+.nav-links {
+    display: none;
+}
+
+// Default Variant Styles
+.Navtext-container .Navigation-Link {
+    font-family: "Blinker", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    letter-spacing: 0%;
+}
+
+.Navtext-container .Navtext-underline {
+    height: 1.2px;
+}
 }
