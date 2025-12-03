@@ -9,10 +9,9 @@
     display: flex;
     align-items: center;
     padding: 16px 42px;
-    background-color: #000000;
+    background-color: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(5px);
     z-index: 100;
-    opacity: 0.85;
 }
 
 .Inner-Navbar {    
@@ -26,10 +25,6 @@
     display: flex;
     gap: 74px;
     align-items: center;
-}
-
-.cross-container {
-    display: none;
 }
 
 // Default Variant Styles
@@ -46,10 +41,6 @@
     background-color: var(--colors-secondary-color-1);
     transform-origin: center center;
     margin-top: 4px;
-}
-
-.hamburger-container {
-    display: none;
 }
 
 // Hover Variant Styles
@@ -74,23 +65,34 @@
     background-color: #ffffff;   // underline color for active
 }
 
+.mobile-menu {
+    display: none;
+}
+
+.Toggle-Menu {
+    display: none;
+}
+
 //Tablet
 @media (max-width: 1024px){
-    .Navbar {
+.Navbar {
     height: 72px;
     display: flex;
     align-items: center;
     padding: 12px 36px;
-    background-color: #000000;
+    background-color: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(5px);
     z-index: 100;
-    opacity: 0.85;
 }
 
 .nav-links {
     display: flex;
     gap: 48px;
     align-items: center;
+}
+
+.Toggle-Menu {
+    display: none;
 }
 
 // Default Variant Styles
@@ -105,64 +107,43 @@
     height: 1.4px;
 }
 
-.hamburger-container {
-    display: none;
-}
-
-.cross-container {
-    display: none;
-}
-
 }
 
 // Mobile
 @media (max-width:580px){
-    .Navbar {
+.Navbar {
     height: 64px;
     display: flex;
     align-items: center;
     padding: 8px 24px;
-    background-color: #000000;
+    background-color: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(5px);
     z-index: 100;
-    opacity: 0.85;
 }
 
 .nav-links {
     display: none;
 }
 
-// Default Variant Styles
-.Navtext-container .Navigation-Link {
-    font-family: "Blinker", sans-serif;
-    font-size: 16px;
-    font-weight: 300;
-    letter-spacing: 0%;
+/* show when menu is open */
+.mobile-menu.show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  background-color: rgba(0, 0, 0, 0.80);
+  position: fixed;
+  top:64px; 
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 64px);
+  padding: 80px;
+  z-index: 999;
+  backdrop-filter: blur(5px);
 }
 
-.Navtext-container .Navtext-underline {
-    height: 1.2px;
-}
-
-.hamburger-container {
-    width: 20px;
-    height: 20px;
+.Toggle-Menu {
     display: flex;
-    justify-content: center;
-    align-items: center;
 }
-
-.cross-container {
-    //temp
-    display: none;
-
-    // width: 20px;
-    // height: 20px;
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
-}
-
-
 
 }

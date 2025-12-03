@@ -1,0 +1,8 @@
+.Hero-banner-container {
+  display: flex;          /* fix here */
+  align-items: center;    /* vertical alignment */
+  justify-content: center;/* horizontal alignment */
+  width: 100%;
+  height: 100vh;          /* make container full screen height */
+  flex-direction: column; /* stack img and h1 vertically */
+}
