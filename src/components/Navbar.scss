@@ -28,6 +28,10 @@
     align-items: center;
 }
 
+.cross-container {
+    display: none;
+}
+
 // Default Variant Styles
 .Navtext-container .Navigation-Link {
     @extend .desktop-nav-link-text-default;
@@ -42,6 +46,10 @@
     background-color: var(--colors-secondary-color-1);
     transform-origin: center center;
     margin-top: 4px;
+}
+
+.hamburger-container {
+    display: none;
 }
 
 // Hover Variant Styles
@@ -97,6 +105,14 @@
     height: 1.4px;
 }
 
+.hamburger-container {
+    display: none;
+}
+
+.cross-container {
+    display: none;
+}
+
 }
 
 // Mobile
@@ -127,4 +143,26 @@
 .Navtext-container .Navtext-underline {
     height: 1.2px;
 }
+
+.hamburger-container {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cross-container {
+    //temp
+    display: none;
+
+    // width: 20px;
+    // height: 20px;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+}
+
+
+
 }
