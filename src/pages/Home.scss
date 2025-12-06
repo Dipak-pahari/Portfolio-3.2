@@ -1,8 +1,156 @@
+@use "../index" as *;
+
+.Homepage-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 180px;
+  flex-direction: column;
+}
+
 .Hero-banner-container {
-  display: flex;          /* fix here */
-  align-items: center;    /* vertical alignment */
-  justify-content: center;/* horizontal alignment */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 42px;
+  height: 100vh;
   width: 100%;
-  height: 100vh;          /* make container full screen height */
-  flex-direction: column; /* stack img and h1 vertically */
+  position: relative;
+
+  background-image: url("../assets/hero-bg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.Hero-banner-container img {
+  position: relative;
+  top: 80px;
+  min-height: 90%;
+  width: auto;
+  object-fit: cover;
+  z-index: 10;
+}
+
+.Hero-container {
+  display: flex;
+  flex-direction: row;
+  z-index: 15;
+  width: 100%;
+  justify-content: space-between;
+  position: relative;
+  bottom: 15%;
+  align-items: center;
+}
+
+.Hero-name {
+  display: flex;
+  flex-direction: column;
+}
+
+.scroll-down-text {
+  @include desktop-instuction-text;
+  color: var(--colors-secondary-color-1);
+}
+
+.Hero-name a {
+  @include desktop-hero-name;
+  color: var(--colors-name-text);
+}
+
+.Hero-roles {
+  position: absolute;
+  top: 15%;
+  right: 42px;
+  left: auto;
+  max-width: 32%;
+  text-align: right;
+  z-index: 5;
+}
+
+.Hero-roles a {
+  @include desktop-hero-roles;
+  color: var(--colors-secondary-color-1);
+}
+
+//Tablet
+@media (max-width: 1024px){
+.Hero-banner-container {
+  padding: 0 28px;
+}
+
+.Hero-banner-container img {
+  min-height: 92%;
+  min-height: 50%;
+  width: auto;
+}
+
+.Hero-container {
+  position: relative;
+  bottom: 12%;
+  align-items: flex-end;
+}
+
+.scroll-down-text {
+  @include tablet-instuction-text;
+}
+
+.Hero-name a {
+  @include tablet-hero-name;
+}
+
+.Hero-roles {
+  position: absolute;
+  top: 12%;
+  right: 28px;
+  max-width: 26%;
+}
+
+.Hero-roles a {
+  @include tablet-hero-roles;
+}
+
+}
+
+//Mobile
+@media (max-width: 580px){
+.Hero-banner-container {
+  padding: 0 24px;
+}
+
+.Hero-banner-container img {
+  position: relative;
+  top: 100px;
+  min-height: 10%;
+  width: 150%;
+  object-fit: cover;
+  z-index: 10;
+}
+
+.Hero-container {
+  position: relative;
+  bottom: -8%;
+  align-items: flex-end;
+}
+
+.scroll-down-text {
+  @include mobile-instuction-text;
+}
+
+.Hero-name a {
+  @include mobile-hero-name;
+}
+
+.Hero-roles {
+  position: absolute;
+  top: 12%;
+  right: 28px;
+  max-width: 50%;
+}
+
+.Hero-roles a {
+  @include mobile-hero-roles;
+}
+
 }

@@ -1,19 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import './Navbar.scss';
-import logo from '../assets/logo.svg';
-import hamburger from '../assets/hamburger.png';
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import "./Navbar.scss";
+import logo from "../assets/logo.svg";
+import hamburger from "../assets/hamburger.png";
 import cross from "../assets/cross.png";
 
 //hamburger component
 function Hamburger({ openMenu }) {
   return (
     <div className="toggle-button-menu">
-      <div className="hamburger-container" style={{ display: openMenu ? "none" : "flex" }}>
+      <div
+        className="hamburger-container"
+        style={{ display: openMenu ? "none" : "flex" }}
+      >
         <img src={hamburger} alt="hamburger icon" />
       </div>
 
-      <div className="cross-container" style={{ display: openMenu ? "flex" : "none" }}>
+      <div
+        className="cross-container"
+        style={{ display: openMenu ? "flex" : "none" }}
+      >
         <img src={cross} alt="cross icon" />
       </div>
     </div>
@@ -27,7 +33,7 @@ function Navtext({ text, to }) {
 
   return (
     <div className="Navtext-container">
-      <Link to={to} className={`Navigation-Link ${isActive ? 'active' : ''}`}>
+      <Link to={to} className={`Navigation-Link ${isActive ? "active" : ""}`}>
         {text}
       </Link>
       <div className="Navtext-underline"></div>
@@ -38,9 +44,36 @@ function Navtext({ text, to }) {
 // Navbar component
 function Navbar() {
   const [openMenu, setMenuState] = useState(false);
+  const [transparent, setTransparent] = useState(true);
+  const location = useLocation();
+
+  useEffect(() => {
+    if(location.pathname === '/') { 
+      const handleScroll = () => {
+        const hero = document.querySelector('.Hero-banner-container');
+        if(hero) {
+          if(window.scrollY > hero.offsetHeight - 80) { 
+            setTransparent(false); 
+          } else {
+            setTransparent(true); 
+          }
+        }
+      };
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    } else {
+      setTransparent(false);
+    }
+  }, [location]);
 
   return (
-    <nav className="Navbar">
+    <nav className="Navbar"
+    style={{
+    backgroundColor: transparent ? 'transparent' : 'rgba(0, 0, 0, 0.85)',
+    backdropFilter: transparent ? 'none' : 'blur(5px)',
+    transition: 'background-color 0.3s ease-in-out',
+  }}
+    >
       <div className="Inner-Navbar">
         <Link to="/">
           <img src={logo} alt="Portfolio Logo" />
@@ -65,7 +98,6 @@ function Navbar() {
         <Navtext text="PROJECT" to="/project" />
         <Navtext text="CONTACT" to="/contact" />
       </div>
-
     </nav>
   );
 }

@@ -1,5 +1,4 @@
 /* --- GLOBAL RESET --- */
-
 * {
   margin: 0;
   padding: 0;
@@ -11,12 +10,12 @@ a {
   color: inherit;
 }
 
+/* --- VARIABLES --- */
 :root {
-
-  /* Family (Base Tokens) */
+  /* Family */
   --family-primary: Inter;
 
-  /* Weights (Base Tokens) */
+  /* Weights */
   --weights-thin: 100;
   --weights-extralight: 200;
   --weights-light: 300;
@@ -27,80 +26,7 @@ a {
   --weights-extrabold: 800;
   --weights-black: 900;
 
-  /* Title (Base Tokens) */
-  --title-title-1-fontsize: 72px;
-  --title-title-1-lineheight: 88px;
-  --title-title-1-letterspacing: -0.8px;
-  --title-title-2-fontsize: 64px;
-  --title-title-2-lineheight: 76px;
-  --title-title-2-letterspacing: -0.8px;
-  --title-title-3-fontsize: 56px;
-  --title-title-3-lineheight: 68px;
-  --title-title-3-letterspacing: -0.6px;
-
-  /* Heading (Base Tokens) */
-  --heading-h1-fontsize: 56px;
-  --heading-h1-lineheight: 68px;
-  --heading-h1-letterspacing: -0.5px;
-  --heading-h2-fontsize: 48px;
-  --heading-h2-lineheight: 58px;
-  --heading-h2-letterspacing: -0.4px;
-  --heading-h3-fontsize: 40px;
-  --heading-h3-lineheight: 48px;
-  --heading-h3-letterspacing: -0.3px;
-  --heading-h4-fontsize: 32px;
-  --heading-h4-lineheight: 38px;
-  --heading-h4-letterspacing: -0.2px;
-  --heading-h5-fontsize: 24px;
-  --heading-h5-lineheight: 30px;
-  --heading-h5-letterspacing: -0.15px;
-  --heading-h6-fontsize: 20px;
-  --heading-h6-lineheight: 24px;
-  --heading-h6-letterspacing: 0;
-
-  /* Label (Base Tokens) */
-  --label-label-1-fontsize: 16px;
-  --label-label-1-lineheight: 22px;
-  --label-label-1-letterspacing: -0.18px;
-  --label-label-2-fontsize: 14px;
-  --label-label-2-lineheight: 20px;
-  --label-label-2-letterspacing: -0.16px;
-  --label-label-3-fontsize: 12px;
-  --label-label-3-lineheight: 16px;
-  --label-label-3-letterspacing: -0.12px;
-
-  /* Body (Base Tokens) */
-  --body-body-1-fontsize: 18px;
-  --body-body-1-lineheight: 28px;
-  --body-body-1-letterspacing: 0;
-  --body-body-2-fontsize: 16px;
-  --body-body-2-lineheight: 24px;
-  --body-body-2-letterspacing: 0;
-  --body-body-3-fontsize: 14px;
-  --body-body-3-lineheight: 20px;
-  --body-body-3-letterspacing: 0;
-  --body-body-4-fontsize: 12px;
-  --body-body-4-lineheight: 16px;
-  --body-body-4-letterspacing: 0;
-
-  /* Caption (Base Tokens) */
-  --caption-caption-1-fontsize: 10px;
-  --caption-caption-1-lineheight: 12px;
-  --caption-caption-1-letterspacing: 0;
-  --caption-caption-2-fontsize: 9px;
-  --caption-caption-2-lineheight: 10px;
-  --caption-caption-2-letterspacing: 0;
-
-  /* Desktop (Base Tokens) */
-  --desktop-padding: 42px;
-
-  /* Tablet (Base Tokens) */
-  --tablet-padding: 36px;
-
-  /* Mobile (Base Tokens) */
-  --mobile-padding: 24px;
-
-  /* Colors (Base Tokens) */
+  /* Colors */
   --colors-bg-color: #ffffff;
   --colors-project-color-1: #80bf77;
   --colors-project-color-1-2: #deefe0;
@@ -114,50 +40,30 @@ a {
   --colors-primary-color-3: #101010;
   --colors-primary-color-4: #ffffff;
 
-  /* Title (Aliases) */
-  --title-title-1-fontfamily: var(--family-primary);
-  --title-title-2-fontfamily: var(--family-primary);
-  --title-title-3-fontfamily: var(--family-primary);
+  /* Padding */
+  --desktop-padding: 42px;
+  --tablet-padding: 36px;
+  --mobile-padding: 24px;
+}
 
-  /* Heading (Aliases) */
-  --heading-h1-fontfamily: var(--family-primary);
-  --heading-h2-fontfamily: var(--family-primary);
-  --heading-h3-fontfamily: var(--family-primary);
-  --heading-h4-fontfamily: var(--family-primary);
-  --heading-h5-fontfamily: var(--family-primary);
-  --heading-h6-fontfamily: var(--family-primary);
+/* --- MIXINS --- */
 
-  /* Label (Aliases) */
-  --label-label-1-fontfamily: var(--family-primary);
-  --label-label-2-fontfamily: var(--family-primary);
-  --label-label-3-fontfamily: var(--family-primary);
-
-  /* Body (Aliases) */
-  --body-body-1-fontfamily: var(--family-primary);
-  --body-body-2-fontfamily: var(--family-primary);
-  --body-body-3-fontfamily: var(--family-primary);
-  --body-body-4-fontfamily: var(--family-primary);
-
-  /* Caption (Aliases) */
-  --caption-caption-1-fontfamily: var(--family-primary);
-  --caption-caption-2-fontfamily: var(--family-primary);
-
-/* Text Styles */
-.desktop-section-title {
+/* --- Desktop Text Styles --- */
+@mixin desktop-section-title {
   font-family: "Blinker", sans-serif;
   font-size: 26px;
   font-weight: 600;
   letter-spacing: 1%;
 }
 
-.desktop-instuction-text {
+@mixin desktop-instuction-text {
   font-family: "Blinker", sans-serif;
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 0%;
 }
 
-.desktop-hero-name {
+@mixin desktop-hero-name {
   font-family: "Lexend", sans-serif;
   font-size: 70px;
   font-weight: 600;
@@ -165,7 +71,7 @@ a {
   letter-spacing: 0%;
 }
 
-.desktop-hero-roles {
+@mixin desktop-hero-roles {
   font-family: "Lexend", sans-serif;
   font-size: 42px;
   font-weight: 600;
@@ -173,57 +79,57 @@ a {
   letter-spacing: 0%;
 }
 
-.desktop-nav-link-text-default {
+@mixin desktop-nav-link-text-default {
   font-family: "Blinker", sans-serif;
   font-size: 18px;
   font-weight: 400;
   letter-spacing: 0%;
 }
 
-.desktop-project-title-dark {
+@mixin desktop-project-title-dark {
   font-family: "Lexend", sans-serif;
   font-size: 20px;
   font-weight: 400;
   letter-spacing: 0%;
 }
 
-.desktop-project-title-light {
+@mixin desktop-project-title-light {
   font-family: "Lexend", sans-serif;
   font-size: 20px;
   font-weight: 300;
   letter-spacing: 0%;
 }
 
-.desktop-project-date {
+@mixin desktop-project-date {
   font-family: "Blinker", sans-serif;
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0%;
 }
 
-.desktop-project-card-title {
+@mixin desktop-project-card-title {
   font-family: "Lexend", sans-serif;
   font-size: 26px;
   font-weight: 400;
   letter-spacing: 0%;
 }
 
-.desktop-project-card-txt {
+@mixin desktop-project-card-txt {
   font-family: "Lexend", sans-serif;
   font-size: 16px;
   font-weight: 300;
   letter-spacing: 0%;
 }
 
-.desktop-project-number {
+@mixin desktop-project-number {
   font-family: "Lexend", sans-serif;
   font-size: 70px;
   font-weight: 400;
   line-height: 60px;
   letter-spacing: 0%;
 }
-default
-.desktop-secondary-button- {
+
+@mixin desktop-secondary-button-default {
   font-family: "Blinker", sans-serif;
   font-size: 20px;
   font-weight: 400;
@@ -231,86 +137,87 @@ default
   letter-spacing: 0%;
 }
 
-.desktop-footer-touch-link {
+@mixin desktop-footer-touch-link {
   font-family: "Blinker", sans-serif;
   font-size: 42px;
   font-weight: 600;
   letter-spacing: 0%;
 }
 
-.tablet-section-title {
+/* --- Tablet Text Styles --- */
+@mixin tablet-section-title {
   font-family: "Blinker", sans-serif;
   font-size: 24px;
   font-weight: 600;
   letter-spacing: 0.5%;
 }
 
-.tablet-instuction-text {
-  font-family: "Blinker", sans-serif;
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: 0%;
-}
-
-.tablet-hero-name {
-  font-family: "Lexend", sans-serif;
-  font-size: 70px;
-  font-weight: 600;
-  line-height: 84px;
-  letter-spacing: 0%;
-}
-
-.tablet-hero-roles {
-  font-family: "Lexend", sans-serif;
-  font-size: 32px;
-  font-weight: 600;
-  line-height: 54px;
-  letter-spacing: 0%;
-}
-
-.tablet-nav-link-text-default {
-  font-family: "Blinker", sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  letter-spacing: 0%;
-}
-
-.tablet-project-title-dark {
-  font-family: "Lexend", sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  letter-spacing: 0%;
-}
-
-.tablet-project-title-light {
-  font-family: "Lexend", sans-serif;
-  font-size: 18px;
-  font-weight: 300;
-  letter-spacing: 0%;
-}
-
-.tablet-project-date {
+@mixin tablet-instuction-text {
   font-family: "Blinker", sans-serif;
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0%;
 }
 
-.tablet-project-card-title {
+@mixin tablet-hero-name {
+  font-family: "Lexend", sans-serif;
+  font-size: 60px;
+  font-weight: 500;
+  line-height: 68px;
+  letter-spacing: 0%;
+}
+
+@mixin tablet-hero-roles {
+  font-family: "Lexend", sans-serif;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 44px;
+  letter-spacing: 0%;
+}
+
+@mixin tablet-nav-link-text-default {
+  font-family: "Blinker", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0%;
+}
+
+@mixin tablet-project-title-dark {
+  font-family: "Lexend", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0%;
+}
+
+@mixin tablet-project-title-light {
+  font-family: "Lexend", sans-serif;
+  font-size: 18px;
+  font-weight: 300;
+  letter-spacing: 0%;
+}
+
+@mixin tablet-project-date {
+  font-family: "Blinker", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0%;
+}
+
+@mixin tablet-project-card-title {
   font-family: "Lexend", sans-serif;
   font-size: 24px;
   font-weight: 400;
   letter-spacing: 0%;
 }
 
-.tablet-project-card-txt {
+@mixin tablet-project-card-txt {
   font-family: "Lexend", sans-serif;
   font-size: 16px;
   font-weight: 300;
   letter-spacing: 0%;
 }
 
-.tablet-project-number {
+@mixin tablet-project-number {
   font-family: "Lexend", sans-serif;
   font-size: 64px;
   font-weight: 400;
@@ -318,7 +225,7 @@ default
   letter-spacing: 0%;
 }
 
-.tablet-secondary-button-default {
+@mixin tablet-secondary-button-default {
   font-family: "Blinker", sans-serif;
   font-size: 20px;
   font-weight: 400;
@@ -326,42 +233,43 @@ default
   letter-spacing: 0%;
 }
 
-.tablet-footer-touch-link {
+@mixin tablet-footer-touch-link {
   font-family: "Blinker", sans-serif;
   font-size: 32px;
   font-weight: 600;
   letter-spacing: 0%;
 }
 
-.mobile-section-title {
+/* --- Mobile Text Styles --- */
+@mixin mobile-section-title {
   font-family: "Blinker", sans-serif;
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 1%;
 }
 
-.mobile-instuction-text {
+@mixin mobile-instuction-text {
   font-family: "Blinker", sans-serif;
   font-size: 12px;
   font-weight: 400;
   letter-spacing: 0%;
 }
 
-.mobile-nav-link-text-default {
+@mixin mobile-nav-link-text-default {
   font-family: "Blinker", sans-serif;
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0%;
 }
 
-.mobile-nav-link-text-hover {
+@mixin mobile-nav-link-text-hover {
   font-family: "Blinker", sans-serif;
   font-size: 14px;
   font-weight: 400;
   letter-spacing: 0%;
 }
 
-.mobile-hero-name {
+@mixin mobile-hero-name {
   font-family: "Lexend", sans-serif;
   font-size: 52px;
   font-weight: 600;
@@ -369,50 +277,50 @@ default
   letter-spacing: 0%;
 }
 
-.mobile-hero-roles {
+@mixin mobile-hero-roles {
   font-family: "Lexend", sans-serif;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 500;
   line-height: 24px;
   letter-spacing: 0%;
 }
 
-.mobile-project-title-dark {
+@mixin mobile-project-title-dark {
   font-family: "Lexend", sans-serif;
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0%;
 }
 
-.mobile-project-title-light {
+@mixin mobile-project-title-light {
   font-family: "Lexend", sans-serif;
   font-size: 16px;
   font-weight: 300;
   letter-spacing: 0%;
 }
 
-.mobile-project-date {
+@mixin mobile-project-date {
   font-family: "Blinker", sans-serif;
   font-size: 16px;
   font-weight: 400;
   letter-spacing: 0%;
 }
 
-.mobile-project-card-title {
+@mixin mobile-project-card-title {
   font-family: "Lexend", sans-serif;
   font-size: 26px;
   font-weight: 400;
   letter-spacing: 0%;
 }
 
-.mobile-project-card-txt {
+@mixin mobile-project-card-txt {
   font-family: "Lexend", sans-serif;
   font-size: 16px;
   font-weight: 300;
   letter-spacing: 0%;
 }
 
-.mobile-project-number {
+@mixin mobile-project-number {
   font-family: "Lexend", sans-serif;
   font-size: 70px;
   font-weight: 400;
@@ -420,7 +328,7 @@ default
   letter-spacing: 0%;
 }
 
-.mobile-secondary-button-default {
+@mixin mobile-secondary-button-default {
   font-family: "Blinker", sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -428,50 +336,46 @@ default
   letter-spacing: 0%;
 }
 
-.mobile-footer-touch-link {
+@mixin mobile-footer-touch-link {
   font-family: "Blinker", sans-serif;
   font-size: 42px;
   font-weight: 600;
   letter-spacing: 0%;
 }
 
-
-/* Effect Styles */
-.mobile-secondary-button {
-  box-shadow: inset 0px 8px 24px -18px rgba(24, 24, 24, 0.30000001192092896);
+/* --- Shadow / Effect Mixins --- */
+@mixin mobile-secondary-button {
+  box-shadow: inset 0px 8px 24px -18px rgba(24, 24, 24, 0.3);
 }
 
-.mobile-project-row-hover {
-  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.18000000715255737);
+@mixin mobile-project-row-hover {
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.18);
 }
 
-.mobile-project-row-selected {
-  box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.23999999463558197);
+@mixin mobile-project-row-selected {
+  box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.24);
 }
 
-.tablet-secondary-button {
-  box-shadow: inset 0px 8px 24px -18px rgba(24, 24, 24, 0.30000001192092896);
+@mixin tablet-secondary-button {
+  box-shadow: inset 0px 8px 24px -18px rgba(24, 24, 24, 0.3);
 }
 
-.tablet-project-row-hover {
-  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.18000000715255737);
+@mixin tablet-project-row-hover {
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.18);
 }
 
-.tablet-project-row-selected {
-  box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.23999999463558197);
+@mixin tablet-project-row-selected {
+  box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.24);
 }
 
-.desktop-project-row-hover {
-  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.18000000715255737);
+@mixin desktop-project-row-hover {
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.18);
 }
 
-.desktop-project-row-selected {
-  box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.23999999463558197);
+@mixin desktop-project-row-selected {
+  box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.24);
 }
 
-.desktop-secondary-button-hover {
-  box-shadow: inset 0px 8px 24px -18px rgba(24, 24, 24, 0.30000001192092896);
+@mixin desktop-secondary-button-hover {
+  box-shadow: inset 0px 8px 24px -18px rgba(24, 24, 24, 0.3);
 }
-
-}
-
