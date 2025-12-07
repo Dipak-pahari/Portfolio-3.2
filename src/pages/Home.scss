@@ -22,7 +22,35 @@
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
+
+  animation: bgMove 30s linear infinite;
 }
+//aniamtions of bg image
+@keyframes bgMove {
+  0% { background-position: center 0%; }
+  25% { background-position: center 30%; }
+  50% { background-position: center 50%; }
+  75% { background-position: center 30%; }
+  100% { background-position: center 0%; }
+}
+
+/* Page load animations */
+.Hero-roles,
+.Hero-name,
+.Hero-banner-container img {
+  opacity: 0; /* hidden initially */
+  transform: translateY(26px); /* start slightly lower */
+  transition: all 1s ease-out; /* smooth animation */
+}
+
+/* Class to activate the animation */
+.Hero-roles.animate,
+.Hero-name.animate,
+.Hero-banner-container img.animate {
+  opacity: 1;
+  transform: translateY(0); /* move to normal position */
+}
+
 
 .Hero-banner-container img {
   position: relative;
@@ -72,6 +100,35 @@
 .Hero-roles a {
   @include desktop-hero-roles;
   color: var(--colors-secondary-color-1);
+}
+
+//animations of text
+.Hero-roles .highlight {
+  background: linear-gradient(90deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.Hero-roles .highlight:hover {
+  text-shadow: 0 0 6px rgba(255,255,255,0.5);
+  transform: scale(1.03);
+}
+
+.Hero-name .highlight {
+  background: linear-gradient(90deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.Hero-name .highlight:hover {
+  text-shadow: 0 0 6px rgba(255,255,255,0.5);
+  transform: scale(1.03);
 }
 
 //Tablet
