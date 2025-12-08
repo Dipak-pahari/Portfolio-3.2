@@ -1,5 +1,5 @@
-import ProjectImage2 from "../assets/gardensewa thumbnail.png";
-import ProjectImage3 from "../assets/savvy's collection thumbnail.png";
+import ProjectImage2 from "../assets/GardenSewa-thumbnail.png";
+import ProjectImage3 from "../assets/savvy's-thumbnail.png";
 
 const projects = [
   {
