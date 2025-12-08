@@ -12,11 +12,12 @@ const Home = () => {
     const heroName = document.querySelector(".Hero-name");
     const heroImg = document.querySelector(".Hero-banner-container img");
 
-    // Slight stagger for professional effect
+    // Slight effect
     setTimeout(() => heroRoles?.classList.add("animate"), 100);
     setTimeout(() => heroName?.classList.add("animate"), 300);
     setTimeout(() => heroImg?.classList.add("animate"), 500);
   }, []);
+  
   return (
     <div className="Homepage-container">
       <div className="Hero-banner-container">

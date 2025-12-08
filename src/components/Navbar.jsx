@@ -29,7 +29,10 @@ function Hamburger({ openMenu }) {
 // Navigation text component
 function Navtext({ text, to }) {
   const location = useLocation();
-  const isActive = location.pathname === to;
+  const isActive =
+  location.pathname === to ||
+  location.pathname.startsWith(to + "/");
+
 
   return (
     <div className="Navtext-container">

@@ -105,6 +105,7 @@
 //animations of text
 .Hero-roles .highlight {
   background: linear-gradient(90deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 700;
@@ -119,6 +120,7 @@
 
 .Hero-name .highlight {
   background: linear-gradient(90deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 700;

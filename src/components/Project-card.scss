@@ -1,146 +1,218 @@
 @use '../index' as *;
 
-.Project-card {
-    width: 100%;
-    height: 780px;
-    
-    border-radius: 0px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    gap: 72px;
+.Project-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
 }
 
+/* ----------------- MAIN CARD ----------------- */
+.Project-card {
+  width: 100%;
+  height: 780px;
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+}
+
+/* ----------------- LIST ----------------- */
 .Project-list-container {
-    width: 100%;
-    height: 195px;
-    
-    padding: 0px 146px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: flex-start;
+  width: 100%;
+  height: 195px;
+  padding: 0 146px;
+  display: flex;
+  flex-direction: column;
 }
 
 .Project-row {
-    width: 100%;
-    padding: 12px 24px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    border-bottom: 1px solid var(--colors-secondary-color-1);
+  width: 100%;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--colors-secondary-color-1);
 }
 
 .Project-row:first-child {
-    border-top: 1px solid var(--colors-secondary-color-1);
+  border-top: 1px solid var(--colors-secondary-color-1);
 }
 
 .Project-row span {
-    @include desktop-project-title-light;
-    color: var(--colors-body-text);
+  @include desktop-project-title-light;
+  color: var(--colors-body-text);
 }
 
+/* ----------------- PROJECT BOX ----------------- */
 .Project-box {
-    width: 100%;
-    height: 519px;
-    
-    border-radius: 0px;
-    display: flex;
-    align-items: center;
+  width: 100%;
+  height: 520px;
+  display: flex;
+  align-items: center;
 }
 
 .Project-inside-box {
-    width: 100%;
-    height: 519px;
-    
-    border-radius: 0px;
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 187px 0px;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
+/* ----------------- META BOX ----------------- */
 .Project-meta-container {
-    width: 274px;
-    height: 519px;
+  min-width: 250px;
+  max-width: 300px;
+  height: 100%;
+  padding: 24px;
 
-    border-radius: 0px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    gap: 21px;
-    justify-content: flex-start;
-    align-items: flex-start;
-    padding: 24px;
-    background-color: #FFFFFF;
-    box-shadow: 0px 3px 8px 0px rgba(24, 24, 24, 0.24);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 21px;
+
+  background: #fff;
+  box-shadow: 0 3px 8px rgba(24, 24, 24, 0.24);
 }
 
+/* ----------------- DATE TAG ----------------- */
 .Date-container {
-    width: 45px;
-    height: 23px;
-    @include desktop-project-date;
-    color:var(--colors-primary-color-4);
-    
-    border-radius: 0px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 6px;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 2px 7px;
-    background-color: #181818;
+  width: 45px;
+  height: 23px;
+  @include desktop-project-date;
+  color: var(--colors-primary-color-4);
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 7px;
+
+  background-color: #181818;
 }
+
+/* ----------------- DETAILS ----------------- */
+.Project-details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.Project-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.Sub-detail-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.Project-name {
+  @include desktop-project-card-title;
+  color: var(--colors-primary-color-1);
+}
+
+.Project-subtitle,
+.Project-description {
+  @include desktop-project-card-txt;
+}
+
+.Project-subtitle {
+  color: var(--colors-secondary-color-2);
+}
+
+.Project-description {
+  color: var(--colors-body-text);
+}
+
+.Sub-details-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* ----------------- ARROWS ----------------- */
+.Project-box .Arrow-container:first-child,
+.Project-box .Arrow-container:last-child {
+  height: 139px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
 .Project-box .Arrow-container:first-child {
-    width: 115px;
-    height: 139px;
-    
-    border-radius: 0px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-    padding: 46px 41px;
-    background-color: #FFFFFF;
-    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.18);
+  width: 115px;
+  padding: 46px 41px;
+  background: var(--colors-primary-color-4);
 }
 
 .Project-box .Arrow-container:last-child {
-    width: 114px;
-    height: 139px;
-    
-    border-radius: 0px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-    padding: 42px 32px;
-    background-color: rgba(24, 24, 24, 0.90);
-    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.18);
+  width: 114px;
+  padding: 42px 32px;
+  background: var(--colors-primary-color-1);
 }
 
-.temp {
-    background-color: red;
-    width: 100%;
-    height: 519px;
-    
-    border-radius: 0px;
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 187px 0px;
+
+/* ----------------- IMAGE ----------------- */
+.project-image,
+.project-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.project-image img {
+  object-fit: cover;
+}
+
+/* ----------------- ARROW HOVER TRANSITIONS ----------------- */
+.Arrow-container {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background 0.2s; // smooth bg change
+}
+
+.Arrow-container img {
+  transition: transform 0.2s; // smooth scale
+  transform-origin: center; // prevent flipping
+}
+
+/* ----------------- SELECTED PROJECT ROW ----------------- */
+.Project-row.selected {
+  background-color: var(--colors-primary-color-1); // dark bg for selected
+  color: var(--colors-primary-color-4); // text white
+}
+
+.Project-row.selected span {
+  color: var(--colors-primary-color-4);
+}
+
+/* ----------------- PREVIEW RECTANGLE ----------------- */
+.Project-row .preview-rectangle {
+  position: absolute;
+  top: -80px; // above the row for video preview
+  left: 0;
+  width: 100%;
+  height: 80px; // matches project thumbnail
+  background-color: red; // temporary preview color
+  border-radius: 4px;
+  z-index: 10;
+}
+
+/* ----------------- OPTIONAL: hover on unselected row ----------------- */
+.Project-row:not(.selected):hover {
+  position: relative;
+}
+
+.Project-description.live-link {
+  color: #007bff; // blue link
+  text-decoration: none;
+  cursor: pointer;
+}
+.Project-description.live-link:hover {
+  text-decoration: underline;
 }

@@ -1,0 +1,130 @@
+/* ====== PROJECT DETAIL PAGE ====== */
+
+.project-detail-container {
+  padding: var(--desktop-padding);
+  max-width: 900px;
+  margin: auto;
+  background: var(--colors-bg-color);
+  color: var(--colors-body-text);
+  padding-top: 80px;
+}
+
+/* Header */
+.project-header {
+  margin-bottom: 48px;
+}
+
+.project-title {
+  font-family: Lexend, sans-serif;
+  font-size: 42px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.project-subtitle {
+  font-family: Blinker, sans-serif;
+  color: var(--colors-secondary-color-2);
+  margin-bottom: 32px;
+}
+
+/* Meta Grid */
+.project-meta {
+  display: flex;
+  gap: 42px;
+}
+
+.project-meta h4 {
+  font-family: Blinker, sans-serif;
+  font-size: 16px;
+  color: var(--colors-secondary-color-3);
+  margin-bottom: 4px;
+}
+
+.project-meta p {
+  font-family: Lexend, sans-serif;
+  font-size: 16px;
+}
+
+/* General Section */
+.project-section {
+  margin-bottom: 48px;
+}
+
+.project-section h2 {
+  font-family: Blinker, sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.project-section p {
+  font-family: Lexend, sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--colors-secondary-color-3);
+}
+
+/* Process List */
+.process-list {
+  list-style: none;
+  padding: 0;
+}
+
+.process-list li {
+  font-family: Lexend, sans-serif;
+  margin-bottom: 8px;
+}
+
+/* Image Grid */
+.image-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.image-grid img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* CTA Button */
+.view-prototype-btn {
+  padding: 14px 28px;
+  border: 1px solid var(--colors-primary-color-1);
+  font-family: Blinker;
+  font-size: 16px;
+  border-radius: 6px;
+  display: inline-block;
+  transition: 0.3s ease;
+}
+
+.view-prototype-btn:hover {
+  background: var(--colors-primary-color-1);
+  color: white;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 768px) {
+  .project-detail-container {
+    padding: var(--tablet-padding);
+  }
+
+  .image-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-meta {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 500px) {
+  .project-detail-container {
+    padding: var(--mobile-padding);
+  }
+
+  .project-title {
+    font-size: 32px;
+  }
+}
