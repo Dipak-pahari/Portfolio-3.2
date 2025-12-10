@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 const CustomCursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [cursorColor, setCursorColor] = useState("white");
+  const [isHovering, setIsHovering] = useState(false);
 
   // Move cursor
   useEffect(() => {
@@ -11,35 +12,54 @@ const CustomCursor = () => {
     return () => document.removeEventListener("mousemove", moveCursor);
   }, []);
 
-  // Dynamic cursor color based on section background
- useEffect(() => {
-  const sections = document.querySelectorAll("section, a, button");
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        const element = entry.target;
-        const bg = window.getComputedStyle(element).backgroundColor;
+  // Dynamic cursor color
+  useEffect(() => {
+    const sections = document.querySelectorAll("section, a, button");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const element = entry.target;
+          const bg = window.getComputedStyle(element).backgroundColor;
 
-        // Make sure bg is valid
-        if (bg && bg !== "transparent") {
-          const rgb = bg.match(/\d+/g);
-          if (rgb && rgb.length >= 3) {
-            const brightness =
-              (parseInt(rgb[0]) * 299 +
-                parseInt(rgb[1]) * 587 +
-                parseInt(rgb[2]) * 114) / 1000;
-            setCursorColor(brightness > 125 ? "#181818" : "#EFEFEF");
+          if (bg && bg !== "transparent") {
+            const rgb = bg.match(/\d+/g);
+            if (rgb && rgb.length >= 3) {
+              const brightness =
+                (parseInt(rgb[0]) * 299 +
+                  parseInt(rgb[1]) * 587 +
+                  parseInt(rgb[2]) * 114) / 1000;
+
+              setCursorColor(brightness > 125 ? "#181818" : "#EFEFEF");
+            }
           }
-        }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    sections.forEach((sec) => observer.observe(sec));
+    return () => sections.forEach((sec) => observer.unobserve(sec));
+  }, []);
+
+  // Detect hover on interactive elements
+  useEffect(() => {
+    const hoverTargets = document.querySelectorAll("a, button, [data-hover='true']");
+
+    const enter = () => setIsHovering(true);
+    const leave = () => setIsHovering(false);
+
+    hoverTargets.forEach((el) => {
+      el.addEventListener("mouseenter", enter);
+      el.addEventListener("mouseleave", leave);
+    });
+
+    return () => {
+      hoverTargets.forEach((el) => {
+        el.removeEventListener("mouseenter", enter);
+        el.removeEventListener("mouseleave", leave);
       });
-    },
-    { threshold: 0.5 }
-  );
-
-  sections.forEach((sec) => observer.observe(sec));
-
-  return () => sections.forEach((sec) => observer.unobserve(sec));
-}, []);
+    };
+  }, []);
 
   return (
     <>
@@ -49,38 +69,17 @@ const CustomCursor = () => {
           position: "fixed",
           left: position.x,
           top: position.y,
-          width: 15,
-          height: 15,
+          width: isHovering ? 32 : 15,  // grow on hover
+          height: isHovering ? 32 : 15,
           borderRadius: "50%",
           background: cursorColor,
           pointerEvents: "none",
           transform: "translate(-50%, -50%)",
-          transition: "background 0.15s, transform 0.1s ease",
+          transition: "background 0.15s, width 0.2s ease, height 0.2s ease",
           mixBlendMode: "difference",
           zIndex: 10000,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
         }}
-      >
-        {/* Inner magnifying effect */}
-        <div
-          style={{
-            width: 6,
-            height: 6,
-            borderRadius: "50%",
-            background: cursorColor,
-            animation: "innerPulse 1s infinite alternate",
-          }}
-        />
-      </div>
-
-      <style>{`
-        @keyframes innerPulse {
-          0% { transform: scale(1); opacity: 0.6; }
-          100% { transform: scale(1.5); opacity: 1; }
-        }
-      `}</style>
+      />
     </>
   );
 };

@@ -39,7 +39,7 @@ const projects = [
     overviewText1: "GardenSewa was designed as a plant-buying platform where users could also book gardeners. As Project Lead, I created a clean and easy-to-use interface aligned with Kishanpedia's direction—but without copying it.",
     overviewText2: "I led the design of Phase 1 and Phase 2. After my internship, the project changed under new management, so the live version isn't identical to my original concept, but it was built on the foundation I created.",
     colordescription: "Why these colors? Fresh, natural, readable, and consistent with the brand direction.",
-    colors: ["#FF5733", "#33FF57", "#3357FF", "#F1C40F", "#8E44AD"],
+    colors: ["#FFFFFF", "#D1F5CB", "#C9EDC5", "#009000", "#0E3A0E" , "#333333"],
   },
   {
     id: "sriyog-dashboard",
@@ -52,12 +52,12 @@ const projects = [
     live: "Unavailable",
     image: ProjectImage3,
     detailPage: "/project/sriyog-dashboard",
-    responsibilities: "temp resposnvibilitys of sriyog prj",
+    responsibilities: "Dashboard Design • User Research • Prototyping",
     galleryImages: [],
-    overviewText1: "savvys collection description1",
-    overviewText2: "savvys collection description2",
-    colordescription: "Why these colors?",
-    colors: ["#FF5733", "#33FF57", "#3357FF"],
+    overviewText1: "This was my first professional UX/UI project as an intern at Sriyog Consulting Pvt. Ltd. I designed a dashboard for managing projects and interns, focusing on a clean, minimalistic interface that was easy to read and use daily.",
+    overviewText2: "I collaborated closely with the project manager and developer to ensure the design was practical and consistent across modules, including inquiries, workforce, project management, history, profile, and sign-up/sign-in pages. Each module prioritized clarity, quick scanning, and actionable insights.",
+    colordescription: "Why these colors? to align with the company’s branding and maintain a consistent visual identity.",
+    colors: ["#F5F6FB", "#A0A5BA", "#5C5F6A", "#4B4B4B", "#292929" , "#000000" ],
   },
 ];
 

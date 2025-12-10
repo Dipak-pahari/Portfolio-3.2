@@ -6,6 +6,7 @@ import PrimaryButton from "./Primary-button";
 import Larrow from "../assets/LightArrow.png";
 import Darrow from "../assets/DarkArrow.png";
 import projects from "../data/projects";
+import SecondaryButton from "./Secondary-button";
 
 function ProjectRow({ project, index, selectedIndex, setSelectedIndex }) {
   const isSelected = index === selectedIndex;
@@ -158,8 +159,8 @@ function ProjectCard() {
               selectedIndex={selectedIndex}
               setSelectedIndex={setSelectedIndex}
             />
-            
           ))}
+          <SecondaryButton text="VIEW ALL PROJECTS" onClick={() => {}} />
         </div>
       </div>
     </div>
