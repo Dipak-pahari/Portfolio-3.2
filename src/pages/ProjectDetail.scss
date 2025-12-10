@@ -1,0 +1,231 @@
+@use "../index" as *;
+
+.Project-detail-page {
+  width: 100%;
+  gap: 180px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+.Project-detail-container {
+  width: 100%;
+  min-height: calc(100vh - 84px); // full viewport height minus header
+  gap: 64px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.Project-detail-card {
+  width: 100%;
+
+  padding: 112px 42px 48px 42px;
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 21px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: var(--colors-primary-color-1);
+  box-shadow: 0px 3px 8px 0px rgba(24, 24, 24, 0.24);
+}
+
+.Project-dates {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 14px;
+  justify-content: flex-start;
+  align-items: center;
+  @include desktop-project-date;
+  color: var(--colors-primary-color-4);
+}
+
+.Time-container {
+  width: 47px;
+  height: 31px;
+  color: var(--colors-primary-color-1);
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 6px;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 6px 8px;
+  background-color: #ffffff;
+}
+
+.Project-meta-data {
+  width: 100%;
+  @include desktop-project-card-title;
+  color: var(--colors-primary-color-4);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 24px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.Project-info {
+  width: 100%;
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 24px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.Project-detail-box {
+  width: 267px; // default width for normal boxes
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0px 120px 0px 0px;
+
+  &.full-width {
+    width: 100%; // stretch full width
+    padding-right: 0; // remove extra padding for full width
+  }
+}
+
+.title-sub-text {
+  color: var(--colors-secondary-color-2);
+  @include desktop-project-card-txt;
+}
+
+.body-sub-text {
+  color: var(--colors-primary-color-4);
+  @include desktop-project-card-txt;
+  width: 100%;
+}
+
+.Project-sub-info {
+  width: 100%;
+
+  border-radius: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 24px 24px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Project-showcase-container {
+  width: 100%;
+  padding: 0 42px;
+}
+
+.Project-showcase {
+  width: 100%;
+  height: 400px; // fixed container height
+  overflow-y: auto; // scroll vertically if content overflows
+  clip-path: inset(0); // optional, ensures content outside is clipped
+  -webkit-overflow-scrolling: touch; // smooth scroll on mobile
+  border-color: var(--colors-secondary-color-1);
+  border-width: 1px;
+  border-style: solid;
+  background-color: rgb(232, 232, 232);
+}
+
+.Image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); // 3 columns
+  gap: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.grid-image {
+  width: 100%; // fill the column width
+  height: auto; // keep aspect ratio
+  object-fit: cover; // crop if needed horizontally
+  border-radius: 8px;
+}
+
+.Project-overview-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 42px;
+}
+
+.Text-container {
+  width: 100%;
+  padding: 0px 42px 0px 204px;
+  border-radius: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 64px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.Text-container span {
+  color: var(--colors-body-text);
+  @include desktop-project-title-light;
+  text-align: justify;
+}
+
+.Color-pallette-section {
+    width: 100%;
+    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 42px;
+}
+
+.Color-pallette-container {
+    padding: 0px 42px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.Color-pallette-text {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    span:first-child {
+      @include desktop-project-card-title;
+      color: var(--colors-primary-color-1);
+    }
+
+    span:last-child {
+      @include desktop-project-title-light;
+      color: var(--colors-body-text);
+    }
+}
+
+.Color-palette {
+  display: flex;
+  flex-wrap: wrap; // wrap if there are too many colors
+}
+
+.colors-box {
+  flex: 1 1 120px; // grow/shrink, min width 120px
+  min-width: 200px;
+  height: 380px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  @include desktop-section-title;
+}

@@ -12,27 +12,34 @@ const CustomCursor = () => {
   }, []);
 
   // Dynamic cursor color based on section background
-  useEffect(() => {
-    const sections = document.querySelectorAll("section, a, button");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const bg = window.getComputedStyle(entry).backgroundColor;
+ useEffect(() => {
+  const sections = document.querySelectorAll("section, a, button");
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const element = entry.target;
+        const bg = window.getComputedStyle(element).backgroundColor;
+
+        // Make sure bg is valid
+        if (bg && bg !== "transparent") {
           const rgb = bg.match(/\d+/g);
-          if (rgb) {
+          if (rgb && rgb.length >= 3) {
             const brightness =
               (parseInt(rgb[0]) * 299 +
                 parseInt(rgb[1]) * 587 +
                 parseInt(rgb[2]) * 114) / 1000;
             setCursorColor(brightness > 125 ? "#181818" : "#EFEFEF");
           }
-        });
-      },
-      { threshold: 0.5 }
-    );
-    sections.forEach((sec) => observer.observe(sec));
-    return () => sections.forEach((sec) => observer.unobserve(sec));
-  }, []);
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  sections.forEach((sec) => observer.observe(sec));
+
+  return () => sections.forEach((sec) => observer.unobserve(sec));
+}, []);
 
   return (
     <>

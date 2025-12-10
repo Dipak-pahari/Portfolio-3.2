@@ -2,14 +2,14 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom"; // for navigation
 import "./Project-card.scss";
 import SectionTitle from "../components/Section-title";
-import PrimaryButton from "../components/Primary-button";
+import PrimaryButton from "./Primary-button";
 import Larrow from "../assets/LightArrow.png";
 import Darrow from "../assets/DarkArrow.png";
 import projects from "../data/projects";
 
-
 function ProjectRow({ project, index, selectedIndex, setSelectedIndex }) {
   const isSelected = index === selectedIndex;
+
   return (
     <div
       className={`Project-row ${isSelected ? "selected" : ""}`}
@@ -18,7 +18,18 @@ function ProjectRow({ project, index, selectedIndex, setSelectedIndex }) {
       <span>{project.name}</span>
       <span>{project.type}</span>
       <span>{project.date}</span>
-      {!isSelected && <div className="preview-rectangle" />}
+
+      {!isSelected && (
+        <div className="preview-rectangle">
+          {project.video ? (
+            <video autoPlay muted loop>
+              <source src={project.video} type="video/mp4" />
+            </video>
+          ) : (
+            <img src={project.image} alt={project.name} />
+          )}
+        </div>
+      )}
     </div>
   );
 }
@@ -147,6 +158,7 @@ function ProjectCard() {
               selectedIndex={selectedIndex}
               setSelectedIndex={setSelectedIndex}
             />
+            
           ))}
         </div>
       </div>

@@ -1,17 +1,19 @@
-@use '../index' as *;
+@use "../index" as *;
 
 .Section-title {
-    width: 170px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 8.5px 42px;
-    background-color: var(--colors-primary-color-1);
+  display: inline-flex; // shrink to fit content
+  width: auto; // remove any forced width
+  align-self: flex-start; // overrides parent's stretch
+  flex-direction: row;
+  flex-wrap: nowrap; // text stays on one line
+  justify-content: flex-start;
+  align-items: center;
+  padding: 8.5px 42px;
+  background-color: var(--colors-primary-color-1);
 }
 
 .Section-title span {
-    @include desktop-section-title;
-    color: var(--colors-primary-color-4);
+  @include desktop-section-title;
+  color: var(--colors-primary-color-4);
+  white-space: nowrap;
 }
