@@ -17,3 +17,13 @@
   color: var(--colors-primary-color-4);
   white-space: nowrap;
 }
+
+@media (max-width: 1024px){
+  .Section-title {
+    padding: 6px 28px;
+  }
+
+  .Section-title span {
+    @include tablet-section-title;
+  }
+}

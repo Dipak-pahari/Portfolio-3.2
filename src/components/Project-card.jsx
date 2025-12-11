@@ -1,12 +1,12 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // for navigation
+import { useState, useEffect } from "react";
 import "./Project-card.scss";
 import SectionTitle from "../components/Section-title";
 import PrimaryButton from "./Primary-button";
+import SecondaryButton from "./Secondary-button";
 import Larrow from "../assets/LightArrow.png";
 import Darrow from "../assets/DarkArrow.png";
 import projects from "../data/projects";
-import SecondaryButton from "./Secondary-button";
+import { useNavigate } from "react-router-dom";
 
 function ProjectRow({ project, index, selectedIndex, setSelectedIndex }) {
   const isSelected = index === selectedIndex;
@@ -17,8 +17,10 @@ function ProjectRow({ project, index, selectedIndex, setSelectedIndex }) {
       onClick={() => setSelectedIndex(index)}
     >
       <span>{project.name}</span>
-      <span>{project.type}</span>
-      <span>{project.date}</span>
+      <div className="Project-row-info">
+        <span>{project.type}</span>
+        <span>{project.date}</span>
+      </div>
 
       {!isSelected && (
         <div className="preview-rectangle">
@@ -70,7 +72,11 @@ function Arrow({ direction, onClick }) {
       onMouseLeave={() => setHovered(false)}
       onClick={handleClick}
     >
-      <img src={direction === "left" ? Darrow : Larrow} alt="" style={imgStyle} />
+      <img
+        src={direction === "left" ? Darrow : Larrow}
+        alt=""
+        style={imgStyle}
+      />
     </div>
   );
 }
@@ -80,8 +86,11 @@ function ProjectBox({ project, onPrev, onNext }) {
 
   return (
     <div className="Project-box">
+      {/* Arrows (desktop/tablet only) */}
       <Arrow direction="left" onClick={onPrev} />
+      
       <div className="Project-inside-box">
+        {/* Meta container (desktop/tablet only) */}
         <div className="Project-meta-container">
           <div className="Project-details-container">
             <span className="Date-container">{project.date}</span>
@@ -119,17 +128,30 @@ function ProjectBox({ project, onPrev, onNext }) {
             onClick={() => navigate(project.detailPage)}
           />
         </div>
+
+        {/* Project image */}
         <div className="project-image">
           <img src={project.image} alt={project.name} />
+
+          {/* Mobile-only button below image */}
+          <div className="mobile-project-button">
+            <PrimaryButton
+              text="SEE DETAILS"
+              onClick={() => navigate(project.detailPage)}
+            />
+          </div>
         </div>
       </div>
+
       <Arrow direction="right" onClick={onNext} />
     </div>
   );
 }
 
+
 function ProjectCard() {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const navigate = useNavigate();
 
   const handlePrev = () => {
     setSelectedIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
@@ -138,6 +160,15 @@ function ProjectCard() {
   const handleNext = () => {
     setSelectedIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
   };
+
+  // Auto-slide
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSelectedIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
+    }, 8000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="Project-container">
@@ -160,7 +191,14 @@ function ProjectCard() {
               setSelectedIndex={setSelectedIndex}
             />
           ))}
-          <SecondaryButton text="VIEW ALL PROJECTS" onClick={() => {}} />
+
+          <SecondaryButton
+            text="VIEW ALL"
+            onClick={(e) => {
+              e.stopPropagation(); // prevent row click
+              navigate("/project");
+            }}
+          />
         </div>
       </div>
     </div>

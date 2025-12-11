@@ -16,3 +16,39 @@
     @include desktop-secondary-button-default;
     color: var(--colors-body-text);
 }
+
+.Secondary-button-container:hover {
+    background-color: var(--colors-primary-color-1);
+    border: 1px solid var(--colors-secondary-color-1);
+    @include desktop-project-row-selected;
+}
+
+.Secondary-button-container:hover span {
+    color: var(--colors-primary-color-4);
+}
+
+.Secondary-button-container:active {
+    background-color: var(--colors-secondary-color-2);
+    border: 1px solid var(--colors-secondary-color-1);
+    @include desktop-secondary-button-hover;
+}
+
+@media (max-width: 1024px) {
+    .Secondary-button-container {
+        padding: 12px 24px;
+    }
+    
+    .Secondary-button-container span {
+        @include tablet-secondary-button-default;
+    }
+}
+
+@media (max-width: 578px) {
+    .Secondary-button-container {
+        padding: 8px 16px;
+    }
+    
+    .Secondary-button-container span {
+        @include mobile-secondary-button-default;
+    }
+}

@@ -118,7 +118,6 @@ a {
   font-family: "Lexend", sans-serif;
   font-size: 16px;
   font-weight: 300;
-  letter-spacing: 0%;
 }
 
 @mixin desktop-project-number {
@@ -126,7 +125,6 @@ a {
   font-size: 70px;
   font-weight: 400;
   line-height: 60px;
-  letter-spacing: 0%;
 }
 
 @mixin desktop-secondary-button-default {
@@ -134,14 +132,12 @@ a {
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
-  letter-spacing: 0%;
 }
 
 @mixin desktop-footer-touch-link {
   font-family: "Blinker", sans-serif;
   font-size: 42px;
   font-weight: 600;
-  letter-spacing: 0%;
 }
 
 /* --- Tablet Text Styles --- */
@@ -156,7 +152,6 @@ a {
   font-family: "Blinker", sans-serif;
   font-size: 16px;
   font-weight: 400;
-  letter-spacing: 0%;
 }
 
 @mixin tablet-hero-name {
@@ -164,7 +159,6 @@ a {
   font-size: 60px;
   font-weight: 500;
   line-height: 68px;
-  letter-spacing: 0%;
 }
 
 @mixin tablet-hero-roles {
