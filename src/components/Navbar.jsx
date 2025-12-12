@@ -27,16 +27,17 @@ function Hamburger({ openMenu }) {
 }
 
 // Navigation text component
-function Navtext({ text, to }) {
+function Navtext({ text, to, onClick }) {
   const location = useLocation();
-  const isActive =
-  location.pathname === to ||
-  location.pathname.startsWith(to + "/");
-
+  const isActive = location.pathname === to || location.pathname.startsWith(to + "/");
 
   return (
     <div className="Navtext-container">
-      <Link to={to} className={`Navigation-Link ${isActive ? "active" : ""}`}>
+      <Link
+        to={to}
+        className={`Navigation-Link ${isActive ? "active" : ""}`}
+        onClick={onClick} // added
+      >
         {text}
       </Link>
       <div className="Navtext-underline"></div>
@@ -96,10 +97,10 @@ function Navbar() {
 
       {/* MOBILE MENU */}
       <div className={`mobile-menu ${openMenu ? "show" : ""}`}>
-        <Navtext text="HOME" to="/" />
-        <Navtext text="ABOUT" to="/about" />
-        <Navtext text="PROJECT" to="/project" />
-        <Navtext text="CONTACT" to="/contact" />
+        <Navtext text="HOME" to="/" onClick={() => setMenuState(false)} />
+        <Navtext text="ABOUT" to="/about" onClick={() => setMenuState(false)} />
+        <Navtext text="PROJECT" to="/project" onClick={() => setMenuState(false)} />
+        <Navtext text="CONTACT" to="/contact" onClick={() => setMenuState(false)} />
       </div>
     </nav>
   );

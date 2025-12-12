@@ -27,11 +27,21 @@
 }
 //aniamtions of bg image
 @keyframes bgMove {
-  0% { background-position: center 0%; }
-  25% { background-position: center 30%; }
-  50% { background-position: center 50%; }
-  75% { background-position: center 30%; }
-  100% { background-position: center 0%; }
+  0% {
+    background-position: center 0%;
+  }
+  25% {
+    background-position: center 30%;
+  }
+  50% {
+    background-position: center 50%;
+  }
+  75% {
+    background-position: center 30%;
+  }
+  100% {
+    background-position: center 0%;
+  }
 }
 
 /* Page load animations */
@@ -50,7 +60,6 @@
   opacity: 1;
   transform: translateY(0); /* move to normal position */
 }
-
 
 .Hero-banner-container img {
   position: relative;
@@ -104,7 +113,11 @@
 
 //animations of text
 .Hero-roles .highlight {
-  background: linear-gradient(90deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.6)
+  );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -114,12 +127,16 @@
 }
 
 .Hero-roles .highlight:hover {
-  text-shadow: 0 0 6px rgba(255,255,255,0.5);
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
   transform: scale(1.03);
 }
 
 .Hero-name .highlight {
-  background: linear-gradient(90deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6));
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.6)
+  );
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -129,54 +146,144 @@
 }
 
 .Hero-name .highlight:hover {
-  text-shadow: 0 0 6px rgba(255,255,255,0.5);
+  text-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
   transform: scale(1.03);
 }
 
-//Tablet
-@media (max-width: 1024px){
-.Hero-banner-container {
-  padding: 0 28px;
+/* About Section - professional smooth animation like Hero */
+.About-section-content,
+.About-section-text,
+.About-section-container img {
+  opacity: 0;
+  transform: translateY(20px); /* start slightly lower */
+  transition: all 0.8s cubic-bezier(0.65, 0, 0.35, 1); /* smooth professional easing */
 }
 
-.Hero-banner-container img {
-  min-height: 92%;
-  min-height: 50%;
-  width: auto;
+.About-section-content.animate,
+.About-section-text.animate,
+.About-section-container img.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.Hero-container {
+
+.About-section-container {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 42px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.About-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 36px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.About-section-content {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  gap: 42px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0px 146px 0px 146px;
+}
+
+.About-section-text {
+  @include desktop-project-title-light;
+  color: var(--colors-body-text);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: justify;
+}
+
+.About-section-container img {
+  width: 38%;
+  height: auto;
   position: relative;
-  bottom: 12%;
-  align-items: flex-end;
+  top: -64px;
 }
 
-.scroll-down-text {
-  @include tablet-instuction-text;
+//Tablet
+@media (max-width: 1024px) {
+  .Hero-banner-container {
+    padding: 0 28px;
+  }
+
+  .Hero-banner-container img {
+    min-height: 92%;
+    min-height: 50%;
+    width: auto;
+  }
+
+  .Hero-container {
+    position: relative;
+    bottom: 12%;
+    align-items: flex-end;
+  }
+
+  .scroll-down-text {
+    @include tablet-instuction-text;
+  }
+
+  .Hero-name a {
+    @include tablet-hero-name;
+  }
+
+  .Hero-roles {
+    position: absolute;
+    top: 12%;
+    right: 28px;
+    max-width: 26%;
+  }
+
+  .Hero-roles a {
+    @include tablet-hero-roles;
+  }
+
+  .About-section-container {
+    gap: 28px;
+  }
+
+  .About-section-text {
+    @include tablet-project-title-light;
+    gap: 18px;
+    text-align: left;
+  }
+
+.About-section-container img {
+  width: 54%;
+  height: auto;
+  position: relative;
+  top: -52px;
 }
 
-.Hero-name a {
-  @include tablet-hero-name;
-}
+  .About-section {
+    gap: 30px;
+  }
 
-.Hero-roles {
-  position: absolute;
-  top: 12%;
-  right: 28px;
-  max-width: 26%;
-}
-
-.Hero-roles a {
-  @include tablet-hero-roles;
-}
-
+  .About-section-content {
+    gap: 38px;
+    padding: 0px 36px 0px 36px;
+  }
 }
 
 @media (max-width: 580px) {
   .Hero-banner-container {
     padding: 0 16px;
     width: 100%;
-    overflow-x: hidden;  // Only hide horizontal overflow
+    overflow-x: hidden; // Only hide horizontal overflow
     box-sizing: border-box; // Ensure padding is included in width calculation
   }
 
@@ -214,5 +321,35 @@
 
   .Hero-roles a {
     @include mobile-hero-roles;
+  }
+
+  .About-section-container {
+    gap: 32px;
+  }
+
+  .About-section-container img {
+    width: auto;
+    max-height: 280px;
+    min-height: 220px;
+    position: static;
+}
+
+  .About-section {
+    gap: 26px;
+    align-items: center;
+  }
+
+  .About-section-content {
+    align-items: center;
+    flex-direction: column-reverse;
+    gap: 32px;
+    padding: 0px 24px 0px 24px;
+  }
+
+  .About-section-text {
+    @include mobile-project-title-light; // stack <p> vertically
+    gap: 14px; // now gap works!
+    text-align: justify;
+    align-items: center; // align text to left
   }
 }

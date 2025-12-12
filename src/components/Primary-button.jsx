@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Primary-button.scss";
 
-function PrimaryButton({ text, onClick }) {
+function PrimaryButton({ text, onClick, style = {}, className = "" }) {
   const [hover, setHover] = useState(false);
   const [active, setActive] = useState(false);
 
@@ -9,7 +9,8 @@ function PrimaryButton({ text, onClick }) {
     <div
       className={`Primary-button-container ${hover ? "hover" : ""} ${
         active ? "active" : ""
-      }`}
+      } ${className}`}
+      style={style}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       onMouseDown={() => setActive(true)}

@@ -31,41 +31,44 @@
     @include desktop-nav-link-text-default;
     color: var(--colors-secondary-color-1);
     padding: 4px 0px;
+    transition: color 0.3s ease-in-out, transform 0.2s ease;
 }
 
 .Navtext-container .Navtext-underline {
     width: 0px;
     height: 1.8px;
-    
     background-color: var(--colors-secondary-color-1);
     transform-origin: center center;
     margin-top: 4px;
+    transition: width 0.3s ease-in-out, background-color 0.3s ease;
 }
 
 // Hover Variant Styles
 .Navtext-container .Navigation-Link:hover {
     color: var(--colors-primary-color-4);
-    transition: color 0.3s ease-in-out;
+    transform: scale(1.05);
 }
 
 .Navtext-container .Navigation-Link:hover + .Navtext-underline {
     width: 100%;
-    transition: width 0.3s ease-in-out;
     background-color: var(--colors-primary-color-4);
 }
 
 // Active Variant Style
 .Navtext-container .Navigation-Link.active {
-    color: var(--colors-primary-color-4); // active text color
+    color: var(--colors-primary-color-4); 
 }
 
 .Navtext-container .Navigation-Link.active + .Navtext-underline {
-    width: 100%;                 // make underline visible
-    background-color: #ffffff;   // underline color for active
+    width: 100%;                 
+    background-color: #ffffff;   
 }
 
 .mobile-menu {
     display: none;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
 }
 
 .Toggle-Menu {
@@ -94,7 +97,6 @@
     display: none;
 }
 
-// Default Variant Styles
 .Navtext-container .Navigation-Link {
     @include tablet-nav-link-text-default;
 }
@@ -102,7 +104,6 @@
 .Navtext-container .Navtext-underline {
     height: 1.4px;
 }
-
 }
 
 // Mobile
@@ -140,10 +141,12 @@
   padding: 80px;
   z-index: 999;
   backdrop-filter: blur(5px);
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .Toggle-Menu {
     display: flex;
+    cursor: pointer;
 }
-
 }

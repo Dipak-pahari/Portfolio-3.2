@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./Project-card.scss";
 import SectionTitle from "../components/Section-title";
 import PrimaryButton from "./Primary-button";
@@ -21,7 +21,6 @@ function ProjectRow({ project, index, selectedIndex, setSelectedIndex }) {
         <span>{project.type}</span>
         <span>{project.date}</span>
       </div>
-
       {!isSelected && (
         <div className="preview-rectangle">
           {project.video ? (
@@ -72,46 +71,54 @@ function Arrow({ direction, onClick }) {
       onMouseLeave={() => setHovered(false)}
       onClick={handleClick}
     >
-      <img
-        src={direction === "left" ? Darrow : Larrow}
-        alt=""
-        style={imgStyle}
-      />
+      <img src={direction === "left" ? Darrow : Larrow} alt="" style={imgStyle} />
     </div>
   );
 }
 
-function ProjectBox({ project, onPrev, onNext }) {
+function ProjectBox({ project, onPrev, onNext, direction }) {
   const navigate = useNavigate();
+  const [animating, setAnimating] = useState(false);
+  const [currentProject, setCurrentProject] = useState(project);
+  const [slideDirection, setSlideDirection] = useState("next");
+
+  useEffect(() => {
+    if (project !== currentProject) {
+      setSlideDirection(direction);
+      setAnimating(true);
+      const timeout = setTimeout(() => {
+        setCurrentProject(project);
+        setAnimating(false);
+      }, 300); // duration of slide
+      return () => clearTimeout(timeout);
+    }
+  }, [project, direction]);
 
   return (
     <div className="Project-box">
-      {/* Arrows (desktop/tablet only) */}
       <Arrow direction="left" onClick={onPrev} />
-      
-      <div className="Project-inside-box">
-        {/* Meta container (desktop/tablet only) */}
+      <div className={`Project-inside-box ${animating ? `slide-${slideDirection}` : "slide-in"}`}>
         <div className="Project-meta-container">
           <div className="Project-details-container">
-            <span className="Date-container">{project.date}</span>
+            <span className="Date-container">{currentProject.date}</span>
             <div className="Project-details">
               <div className="Sub-detail-container">
-                <span className="Project-name">{project.name}</span>
+                <span className="Project-name">{currentProject.name}</span>
               </div>
               <div className="Sub-details-list">
                 <div className="Sub-detail-container">
-                  <span className="Project-subtitle">{project.typeLabel}:</span>
-                  <span className="Project-description">{project.client}</span>
+                  <span className="Project-subtitle">{currentProject.typeLabel}:</span>
+                  <span className="Project-description">{currentProject.client}</span>
                 </div>
                 <div className="Sub-detail-container">
                   <span className="Project-subtitle">Role:</span>
-                  <span className="Project-description">{project.role}</span>
+                  <span className="Project-description">{currentProject.role}</span>
                 </div>
-                {project.live && project.live !== "Unavailable" && (
+                {currentProject.live && currentProject.live !== "Unavailable" && (
                   <div className="Sub-detail-container">
                     <span className="Project-subtitle">Live Link:</span>
                     <a
-                      href={project.live}
+                      href={currentProject.live}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="Project-description live-link"
@@ -123,55 +130,57 @@ function ProjectBox({ project, onPrev, onNext }) {
               </div>
             </div>
           </div>
-          <PrimaryButton
-            text="SEE DETAILS"
-            onClick={() => navigate(project.detailPage)}
-          />
+          <PrimaryButton text="SEE DETAILS" onClick={() => navigate(currentProject.detailPage)} />
         </div>
-
-        {/* Project image */}
         <div className="project-image">
-          <img src={project.image} alt={project.name} />
-
-          {/* Mobile-only button below image */}
+          <img src={currentProject.image} alt={currentProject.name} />
           <div className="mobile-project-button">
-            <PrimaryButton
-              text="SEE DETAILS"
-              onClick={() => navigate(project.detailPage)}
-            />
+            <PrimaryButton text="SEE DETAILS" onClick={() => navigate(currentProject.detailPage)} />
           </div>
         </div>
       </div>
-
       <Arrow direction="right" onClick={onNext} />
     </div>
   );
 }
 
-
 function ProjectCard() {
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [direction, setDirection] = useState("next");
   const navigate = useNavigate();
+  const containerRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   const handlePrev = () => {
+    setDirection("prev");
     setSelectedIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
   };
 
   const handleNext = () => {
+    setDirection("next");
     setSelectedIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
   };
 
-  // Auto-slide
   useEffect(() => {
-    const interval = setInterval(() => {
-      setSelectedIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
-    }, 8000);
-
+    const interval = setInterval(() => handleNext(), 8000);
     return () => clearInterval(interval);
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setIsVisible(true);
+      },
+      { threshold: 0.2 }
+    );
+    if (containerRef.current) observer.observe(containerRef.current);
+    return () => {
+      if (containerRef.current) observer.unobserve(containerRef.current);
+    };
+  }, []);
+
   return (
-    <div className="Project-container">
+    <div ref={containerRef} className={`Project-container ${isVisible ? "visible" : ""}`}>
       <SectionTitle title="PROJECT" />
       <div className="Project-card">
         <div className="Project-card-container">
@@ -179,6 +188,7 @@ function ProjectCard() {
             project={projects[selectedIndex]}
             onPrev={handlePrev}
             onNext={handleNext}
+            direction={direction}
           />
         </div>
         <div className="Project-list-container">
@@ -191,14 +201,7 @@ function ProjectCard() {
               setSelectedIndex={setSelectedIndex}
             />
           ))}
-
-          <SecondaryButton
-            text="VIEW ALL"
-            onClick={(e) => {
-              e.stopPropagation(); // prevent row click
-              navigate("/project");
-            }}
-          />
+          <SecondaryButton text="VIEW ALL" onClick={(e) => { e.stopPropagation(); navigate("/project"); }} />
         </div>
       </div>
     </div>
