@@ -1,0 +1,292 @@
+@use "../index" as *;
+
+/* ---------- Footer Scroll Animation ---------- */
+.Footer-animate {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: all 0.8s ease-out;
+}
+
+.Footer-animate.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Footer Container ---------- */
+.Footer-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 0px 42px 8px 42px;
+  background-color: var(--colors-bg-color);
+  color: var(--colors-body-text);
+  font-family: var(--family-primary);
+}
+
+/* ---------- Upper Footer ---------- */
+.Upper-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: flex-start;
+  position: relative; // for Go-to-top arrow
+}
+
+.Footer-details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.Contact-cta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.Contact-cta span:first-child {
+  @include desktop-footer-touch-link;
+  color: var(--colors-primary-color-1);
+}
+
+.Contact-cta span:last-child {
+  @include desktop-project-title-light;
+  color: var(--colors-secondary-color-2);
+  line-height: 1.5;
+}
+
+.Contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start; // align left
+}
+
+.Contact-box {
+  display: flex;
+  align-items: center; // vertical center of icon + text
+  gap: 12px;
+  flex-wrap: nowrap;
+}
+
+.Contact-box a,
+.Contact-box span {
+  font-family: "Blinker", sans-serif;
+  font-size: 16px;
+  color: var(--colors-secondary-color-3);
+  position: relative;
+  flex-grow: 1; // text fills remaining space
+}
+
+// Phone/email underline matching text color
+.Contact-box a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1px;
+  left: 0;
+  bottom: -2px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.Contact-box a:hover {
+  color: var(--colors-primary-color-1);
+}
+
+.Contact-box a:hover::after {
+  width: 100%;
+}
+
+.arrow {
+  margin-left: 4px;
+  transition: transform 0.2s;
+}
+
+a:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* ---------- Icons ---------- */
+.icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.Phone-icon {
+  width: 28px;
+  height: 28px;
+}
+
+/* ---------- Go To Top Arrow ---------- */
+.Go-to-top {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  right: 0; // stay at right corner
+  cursor: pointer;
+  z-index: 10;
+  font-size: 0;
+
+  img.arrowTop {
+    width: 16px;
+    height: 16px;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s;
+  }
+
+  &:hover img.arrowTop {
+    transform: scale(1.2);
+  }
+}
+
+/* ---------- Middle Footer ---------- */
+.Middle-footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  border-top: 1px solid var(--colors-secondary-color-1);
+  border-bottom: 1px solid var(--colors-secondary-color-1);
+  padding: 20px 0;
+  flex-wrap: wrap; // allow wrapping on smaller screens
+}
+
+.Middle-footer span {
+  @include desktop-project-title-dark;
+  color: var(--colors-primary-color-1);
+  cursor: pointer;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.Middle-footer span:hover {
+  color: var(--colors-secondary-color-2);
+  transform: translateY(-2px);
+}
+
+/* ---------- Lower Footer ---------- */
+.Lower-footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: var(--colors-secondary-color-2);
+}
+
+.Social-links {
+  display: flex;
+  gap: 24px;
+  order: -1; // move above text
+}
+
+.Social-links a {
+  text-decoration: none;
+  font-family: "Blinker", sans-serif;
+  font-weight: 500;
+  color: var(--colors-secondary-color-3);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  transition: color 0.3s, transform 0.3s;
+}
+
+// Social link underline matching text color
+.Social-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 1.5px;
+  left: 0;
+  bottom: -2px;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.Social-links a .arrow {
+  transition: transform 0.3s ease;
+}
+
+.Social-links a:hover {
+  color: var(--colors-primary-color-1);
+  transform: translateY(-2px);
+}
+
+.Social-links a:hover .arrow {
+  transform: scale(1.3);
+}
+
+.Social-links a:hover::after {
+  width: 100%;
+}
+
+/* ---------- Responsive: Tablet (1024px) ---------- */
+@media screen and (max-width: 1024px) {
+  .Footer-container {
+    padding: 0px 32px 8px 32px;
+  }
+
+  .Upper-footer {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .Middle-footer {
+    gap: 40px;
+  }
+
+  .Lower-footer {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .Social-links {
+    justify-content: center;
+  }
+}
+
+/* ---------- Responsive: Mobile (580px) ---------- */
+/* ---------- Mobile (580px) updates ---------- */
+@media screen and (max-width: 580px) {
+  .Upper-footer {
+    flex-direction: column;
+    align-items: flex-start; // keep contact info left aligned
+    gap: 16px;
+  }
+
+  .Contact-info {
+    display: flex;
+    flex-direction: column; // each contact stacked vertically
+    gap: 12px;
+    width: 100%; // prevent overflow
+  }
+
+  .Contact-box {
+    display: flex;
+    flex-direction: row; // icon + text in one row
+    align-items: center;
+    gap: 8px;
+    width: 100%; // make text not overflow
+    flex-wrap: nowrap;
+  }
+
+  .Go-to-top {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+  }
+}

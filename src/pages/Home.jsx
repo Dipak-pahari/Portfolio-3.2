@@ -6,6 +6,7 @@ import PrimaryButton from "../components/Primary-button";
 import SectionTitle from "../components/Section-title";
 import aboutimg from "../assets/about.png";
 import { useNavigate } from "react-router-dom";
+import Footer from "../components/Footer.jsx";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -94,6 +95,7 @@ const Home = () => {
           <img src={aboutimg} alt="About Dipak Pahari" />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

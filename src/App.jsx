@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import React from 'react'
-
+import Footer from './components/Footer.jsx'
 import Home from './pages/Home.jsx'
 import About from './pages/About.jsx'
 import Project from './pages/Project.jsx'

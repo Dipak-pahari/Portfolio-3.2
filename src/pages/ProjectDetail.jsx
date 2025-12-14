@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import projects from "../data/projects";
 import "./ProjectDetail.scss";
 import SectionTitle from "../components/Section-title";
+import { useEffect } from "react";
 
 function ProjectDetailBox({ label, value, isLink, isResponsibilities }) {
   const safeValue =
@@ -40,6 +41,10 @@ function ProjectDetailBox({ label, value, isLink, isResponsibilities }) {
 
 function ProjectDetail() {
   const { projectId } = useParams();
+  
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [projectId]); // run every time projectId changes
 
   // Find project by ID
   const project = projects.find((p) => p.id === projectId);
