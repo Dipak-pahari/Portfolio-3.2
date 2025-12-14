@@ -7,6 +7,7 @@ import SectionTitle from "../components/Section-title";
 import aboutimg from "../assets/about.png";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer.jsx";
+import { SiReact } from "react-icons/si";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -79,10 +80,10 @@ const Home = () => {
             <div className="About-section-text">
               <p>Hi, I’m Dipak Pahari.</p>
               <p>
-                UX/UI Designer & Front-End Developer. I design intuitive, modern
-                interfaces and turn them into clean, responsive front-end
-                experiences. I constantly hone my abilities, experiment with new
-                concepts, and improve with each iteration.
+                UX/UI Designer & Front-End Developer. I create clear, modern
+                designs and turn them into responsive front-end experiences
+                using React. I continuously refine my skills and improve with
+                each project.
               </p>
             </div>
             <PrimaryButton

@@ -1,0 +1,229 @@
+.underbuild-container {
+  height: 100vh;
+  width: 100vw;
+  background-color: #181818;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 0 2rem;
+}
+
+.underbuild-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  .grid-pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    height: 100%;
+    width: 100%;
+
+    .grid-item {
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  .shape {
+    position: absolute;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+
+    &.shape1 {
+      top: 10%;
+      left: 10%;
+      width: 6rem;
+      height: 6rem;
+    }
+    &.shape2 {
+      bottom: 15%;
+      right: 15%;
+      width: 4rem;
+      height: 4rem;
+    }
+    &.shape3 {
+      top: 40%;
+      right: 8%;
+      width: 2.5rem;
+      height: 2.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: none;
+    }
+    &.shape4 {
+      bottom: 35%;
+      left: 12%;
+      width: 3rem;
+      height: 3rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: none;
+    }
+  }
+
+  .diagonal-line {
+    position: absolute;
+    height: 1px;
+    width: 150%;
+    background: linear-gradient(to right, transparent, white, transparent);
+    transform: rotate(-15deg);
+  }
+}
+
+.underbuild-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 80%;
+  padding: 2rem 0;
+
+  .construction-icon-wrapper {
+    margin-bottom: 1.5rem;
+    position: relative;
+
+    .construction-icon {
+      position: relative;
+      width: 180px; /* icon size controller */
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .outer-ring,
+      .middle-ring,
+      .pulse-bg {
+        border-radius: 50%;
+        position: absolute;
+      }
+
+      .middle-ring {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .pulse-bg {
+        background: white;
+        filter: blur(20px);
+        opacity: 0.1;
+      }
+
+      .icon svg {
+        width: 100%;
+        height: 100%;
+        color: white;
+      }
+    }
+  }
+
+  .main-heading {
+    font-family: "Lexend", sans-serif;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 1rem;
+
+    .underline {
+      position: relative;
+      display: inline-block;
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+
+  .subtitle {
+    color: #cccccc;
+    max-width: 40rem;
+    margin-bottom: 2rem;
+  }
+
+  .progress-line {
+    width: 100%;
+    max-width: 30rem;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    position: relative;
+
+    .progress-bar {
+      height: 100%;
+      width: 33.33%;
+      background: linear-gradient(to right, transparent, white, transparent);
+      position: absolute;
+    }
+  }
+
+  .back-btn {
+    background: rgba(255, 255, 255, 0.9);
+    color: #181818;
+    padding: 0.75rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    border: none;
+    cursor: pointer;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+
+    .social-icon {
+      width: 3rem;
+      height: 3rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      color: white;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+  }
+
+  .dots {
+    display: flex;
+    gap: 0.5rem;
+
+    .dot {
+      width: 0.375rem;
+      height: 0.375rem;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 50%;
+    }
+  }
+}
+
+/* FORCE lucide construction icon size */
+.lucide-construction {
+  width: 120px !important;
+  height: 120px !important;
+}
+
+.construction-icon .icon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.construction-icon .icon .lucide-construction {
+  max-width: 70%;
+  max-height: 70%;
+  width: 100% !important;
+  height: 100% !important;
+}

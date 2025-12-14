@@ -1,9 +1,10 @@
 import React from 'react';
+import UnderBuild from "../components/UnderBuild";
 
 const Contact = () => {
   return (
     <div>
-      <h1>Contact Page</h1>
+      <UnderBuild />
     </div>
   );
 };
