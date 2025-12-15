@@ -1,5 +1,26 @@
 @use "../index" as *;
 
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.grid-image {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.5s ease;
+
+  &.is-visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 .Project-detail-page {
   width: 100%;
   gap: 180px;
@@ -20,7 +41,6 @@
 
 .Project-detail-card {
   width: 100%;
-
   padding: 112px 42px 48px 42px;
   border-radius: 0px;
   display: flex;
@@ -49,7 +69,6 @@
   width: 47px;
   height: 31px;
   color: var(--colors-primary-color-1);
-
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -84,7 +103,7 @@
 }
 
 .Project-detail-box {
-  width: 267px; // default width for normal boxes
+  width: 267px;
   border-radius: 0px;
   display: flex;
   flex-direction: column;
@@ -94,8 +113,8 @@
   padding: 0px 120px 0px 0px;
 
   &.full-width {
-    width: 100%; // stretch full width
-    padding-right: 0; // remove extra padding for full width
+    width: 100%;
+    padding-right: 0;
   }
 }
 
@@ -112,7 +131,6 @@
 
 .Project-sub-info {
   width: 100%;
-
   border-radius: 0px;
   display: flex;
   flex-direction: row;
@@ -130,10 +148,10 @@
 
 .Project-showcase {
   width: 100%;
-  height: 400px; // fixed container height
-  overflow-y: auto; // scroll vertically if content overflows
-  clip-path: inset(0); // optional, ensures content outside is clipped
-  -webkit-overflow-scrolling: touch; // smooth scroll on mobile
+  height: 400px;
+  overflow-y: auto;
+  clip-path: inset(0);
+  -webkit-overflow-scrolling: touch;
   border-color: var(--colors-secondary-color-1);
   border-width: 1px;
   border-style: solid;
@@ -142,16 +160,16 @@
 
 .Image-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); // 3 columns
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 10px;
   box-sizing: border-box;
 }
 
 .grid-image {
-  width: 100%; // fill the column width
-  height: auto; // keep aspect ratio
-  object-fit: cover; // crop if needed horizontally
+  width: 100%;
+  height: auto;
+  object-fit: cover;
   border-radius: 8px;
 }
 
@@ -172,55 +190,54 @@
   flex-wrap: nowrap;
   gap: 64px;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
+
+  span {
+    color: var(--colors-body-text);
+    @include desktop-project-title-light;
+    text-align: justify;
+  }
 }
 
-.Text-container span {
-  color: var(--colors-body-text);
-  @include desktop-project-title-light;
-  text-align: justify;
-}
-
-.Color-pallette-section {
-    width: 100%;
-    
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    gap: 42px;
+.Design-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 42px;
 }
 
 .Color-pallette-container {
-    padding: 0px 42px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
+  padding: 0px 42px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .Color-pallette-text {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 
-    span:first-child {
-      @include desktop-project-card-title;
-      color: var(--colors-primary-color-1);
-    }
+  span:first-child {
+    @include desktop-project-card-title;
+    color: var(--colors-primary-color-1);
+  }
 
-    span:last-child {
-      @include desktop-project-title-light;
-      color: var(--colors-body-text);
-    }
+  span:last-child {
+    @include desktop-project-title-light;
+    color: var(--colors-body-text);
+  }
 }
 
 .Color-palette {
   display: flex;
-  flex-wrap: wrap; // wrap if there are too many colors
+  flex-wrap: wrap;
 }
 
 .colors-box {
-  flex: 1 1 120px; // grow/shrink, min width 120px
+  flex: 1 1 120px;
   min-width: 200px;
   height: 380px;
   display: flex;
@@ -228,4 +245,229 @@
   align-items: center;
   text-align: center;
   @include desktop-section-title;
+}
+
+.Gallery-placeholder {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--colors-body-text);
+  font-style: italic;
+}
+
+.Typography-container {
+  padding: 0 42px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.Typography-box {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+}
+
+.Typography-title {
+  @include desktop-project-card-title;
+  color: var(--colors-primary-color-1);
+}
+
+.Typography-description {
+  @include desktop-project-title-light;
+  color: var(--colors-body-text);
+}
+
+.Typography-text {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 16px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.Impact-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+}
+
+.Impact-container {
+  padding: 0 146px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.Impact-box {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  padding: 32px;
+  gap: 24px;
+  border: 1px solid #cccccc;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.16);
+}
+
+.Impact-box:hover {
+  box-shadow: 0px 4px 6px -2px rgba(0, 0, 0, 0.05), 0px 10px 15px -3px rgba(0, 0, 0, 0.10);
+}
+
+.Impact-title {
+  @include desktop-project-card-title;
+  color: var(--colors-primary-color-1);
+}
+
+.Impact-description {
+  @include desktop-project-title-light;
+  color: var(--colors-body-text);
+}
+
+.Impact-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.Impact-label {
+  width: 100%;
+  font-family: "Lexend", sans-serif;
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 300;
+  color: #6d6d6d;
+}
+
+.Project-texts {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 16px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.Project-texts .top {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.Impact-meta .description {
+  @include desktop-project-card-txt;
+  color: var(--colors-body-text);
+}
+
+.Problem-no {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 8.5px 16px;
+  border-radius: 0px;
+  background-color: #181818;
+  @include desktop-instuction-text;
+  color: var(--colors-primary-color-4);
+}
+
+.Back-to-project {
+  display: flex;
+  justify-content: center;
+  padding-top: 24px;
+}
+
+.view-all-project {
+  width: 220px;
+}
+
+/*================== TABLET ==================*/
+@media (max-width: 1024px) {
+  .Project-detail-card {
+    padding: 96px 36px 36px 36px;
+  }
+
+  .Text-container {
+    padding: 0 36px;
+    flex-direction: column;
+    gap: 32px;
+
+    span {
+      @include tablet-project-title-light;
+      margin-top: 0;
+    }
+  }
+
+  .Color-pallette-container {
+    padding: 0 36px;
+  }
+
+  .Impact-container {
+    padding: 0 36px;
+  }
+
+  .Project-showcase-container {
+    padding: 0 36px;
+  }
+
+  .Typography-container {
+    padding: 0 36px;
+  }
+}
+
+/*================== MOBILE ==================*/
+@media (max-width: 580px) {
+  .Project-detail-card {
+    padding: 72px 24px 24px 24px;
+  }
+
+  .Text-container {
+    padding: 0 24px;
+    flex-direction: column;
+    gap: 16px;
+
+    span {
+      @include mobile-project-title-light;
+      margin-top: 8px;
+    }
+  }
+
+  .Color-pallette-container {
+    padding: 0 24px;
+  }
+
+  .Impact-container {
+    padding: 0 24px;
+  }
+
+  .Project-showcase-container {
+    padding: 0 24px;
+  }
+
+  .Typography-container {
+    padding: 0 24px;
+  }
+
+  .Image-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }

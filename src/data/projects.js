@@ -3,8 +3,18 @@ import ProjectImage3 from "../assets/savvy's-thumbnail.png";
 import Gimg3 from "../assets/GardenSewa404.png";
 import Gimg1 from "../assets/GardenSewaHome.png";
 import Gimg2 from "../assets/GardenSewaServices.png";
+import SourceSansProImg from "../assets/SourceSansPro.png";
+import SFUIDisplay from "../assets/SFUIDisplay.png";
+import SFUIText from "../assets/SFUIText.png";
+import un from "../assets/un.png";
+import Simg4 from "../assets/Homepage.png";
+import Simg3 from "../assets/Cart.png";
+import Simg2 from "../assets/ProductDetail.png";
+import Simg1 from "../assets/Shop.png";
+import Urbanist from "../assets/Urbanist.png";
 
 const projects = [
+  /* ===================== SAVVY ===================== */
   {
     id: "savvy",
     name: "Savvy's Collection",
@@ -16,13 +26,80 @@ const projects = [
     live: "Unavailable",
     image: ProjectImage3,
     detailPage: "/project/savvy",
-    responsibilities: "temp resposnvibilitys of savvy prj",
-    galleryImages: [],
-    overviewText1: "savvys collection description1",
-    overviewText2: "savvys collection description2",
-    colordescription: "Why these colors?",
-    colors: ["#F1C40F", "#8E44AD"],
+    responsibilities: "Temporary responsibilities for Savvy project",
+
+    /* Gallery */
+    galleryImages: [Simg1, Simg2, Simg3, Simg4],
+    galleryNote:
+      "Project visuals are not displayed due to client confidentiality.",
+
+    /* Overview */
+    overviewText1: "Savvy’s Collection description 1",
+    overviewText2: "Savvy’s Collection description 2",
+
+    /* Colors */
+    colordescription: "Why these colors?These colors reflect Savvy’s vibrant and modern brand identity:",
+    colors: [
+      "#333333", // Body Text (darkest)
+      "#808080", // Placeholder / Neutral
+      "#bc5c05", // Primary Hover
+      "#ff7a00", // Primary
+      "#e6cd7b", // Accent Text
+      "#ffffff", // White / Backgrounds (lightest)
+    ],
+
+    /* Typography (NEW – scalable) */
+    typography: [
+      {
+        title: "Typography — Lexend",
+        description:
+          "Used to create a friendly, readable, and modern shopping experience.",
+        image: Urbanist,
+      },
+    ],
+
+    /* Impact (optional) */
+    impact: [
+      {
+        title: "Limited visual exposure due to privacy",
+        description:
+          "Client restrictions prevented public sharing of final UI screens.",
+        solution:
+          "Focused on documenting the design process, decisions, and structure.",
+        outcome:
+          "Clear communication of design thinking without violating confidentiality.",
+      },
+      {
+        title: "Client Communication",
+        description:
+          "Aligning schedules for feedback was tricky, making communication feel awkward.",
+        solution:
+          "Took initiative to ask for design feedback proactively.",
+        outcome:
+          "Smooth and timely communication throughout the project.",
+      },
+      {
+        title: "Clean & Modern Design",
+        description:
+          "Needed to show many products while maintaining a clean layout.",
+        solution:
+          "Prioritized key content and organized products clearly.",
+        outcome:
+          "Modern, easy-to-navigate e-commerce website.",
+      },
+      {
+        title: "Checkout & Device Consistency",
+        description:
+          "Designing checkout and ensuring tablet/mobile consistency was challenging.",
+        solution:
+          "Used components, styles, and variables for reusable elements.",
+        outcome:
+          "Smooth checkout process and consistent design across devices.",
+      },
+    ],
   },
+
+  /* ===================== GARDENSEWA ===================== */
   {
     id: "gardensewa",
     name: "GardenSewa",
@@ -34,13 +111,82 @@ const projects = [
     live: "https://www.gardensewa.com/",
     image: ProjectImage2,
     detailPage: "/project/gardensewa",
-    responsibilities: "Website Design • User Research • Wireframing • Prototyping",
-    galleryImages: [Gimg1, Gimg2, Gimg3], // scrollable images
-    overviewText1: "GardenSewa was designed as a plant-buying platform where users could also book gardeners. As Project Lead, I created a clean and easy-to-use interface aligned with Kishanpedia's direction—but without copying it.",
-    overviewText2: "I led the design of Phase 1 and Phase 2. After my internship, the project changed under new management, so the live version isn't identical to my original concept, but it was built on the foundation I created.",
-    colordescription: "Why these colors? Fresh, natural, readable, and consistent with the brand direction.",
-    colors: ["#FFFFFF", "#D1F5CB", "#C9EDC5", "#009000", "#0E3A0E" , "#333333"],
+    responsibilities:
+      "Website Design • User Research • Wireframing • Prototyping",
+
+    /* Gallery */
+    galleryImages: [Gimg1, Gimg2, Gimg3],
+
+    /* Overview */
+    overviewText1:
+      "GardenSewa was designed as a plant-buying platform where users could also book gardeners. As Project Lead, I created a clean and easy-to-use interface aligned with Kishanpedia's direction—without copying it.",
+    overviewText2:
+      "I led Phase 1 and Phase 2. After my internship, the project changed under new management, but the live product is based on the foundation I designed.",
+
+    /* Colors */
+    colordescription:
+      "Fresh, natural, readable, and consistent with the brand direction.",
+    colors: [
+      "#FFFFFF",
+      "#D1F5CB",
+      "#C9EDC5",
+      "#009000",
+      "#0E3A0E",
+      "#333333",
+    ],
+
+    /* Typography */
+    typography: [
+      {
+        title: "Primary Typeface — Inter",
+        description:
+          "Used for headings and key UI elements to maintain clarity.",
+        image: SourceSansProImg,
+      },
+    ],
+
+    /* Impact */
+    impact: [
+      {
+        title: "Initial wireframes looked too modern and “foreign,” not matching Kishanpedia’s brand.",
+        description:
+          "Initial wireframes looked too modern and “foreign,” not matching Kishanpedia’s brand.",
+        solution:
+          "Refined structure, colors, and spacing to reflect brand identity while keeping UI fresh.",
+        outcome:
+          "Unique, brand-aligned designs that were still visually modern.",
+      },
+      {
+        title: "Frequent design changes from project managers caused inconsistencies.",
+        description:
+          "Frequent design changes from project managers caused inconsistencies.",
+        solution:
+          "Created reusable components, typography styles, and color variables.",
+        outcome:
+          "Updates became faster and more consistent, saving design and development time.",
+      },
+      {
+        title: "Ensuring usability for users booking gardeners and buying plants.",
+        description:
+          "Ensuring usability for users booking gardeners and buying plants.",
+        solution:
+          "Clear visual hierarchy, intuitive flows, and responsive layouts.",
+        outcome:
+          "Users could navigate and complete key tasks efficiently.",
+      },
+      {
+        title: "Coordination between multiple designers and developers was challenging.",
+        description:
+          "Coordination between multiple designers and developers was challenging.",
+        solution:
+          "Led regular meetings, guided the other designer, and maintained shared design system.",
+        outcome:
+          "Smooth collaboration and implementation despite team size and workflow changes.",
+      },
+    ],
   },
+
+  /* ===================== SRIYOG DASHBOARD ===================== */
   {
     id: "sriyog-dashboard",
     name: "SRIYOG Dashboard",
@@ -50,14 +196,92 @@ const projects = [
     client: "SRIYOG Consulting",
     role: "UI/UX Designer",
     live: "Unavailable",
-    image: ProjectImage3,
+    image: un,
     detailPage: "/project/sriyog-dashboard",
     responsibilities: "Dashboard Design • User Research • Prototyping",
+
+    /* Gallery */
     galleryImages: [],
-    overviewText1: "This was my first professional UX/UI project as an intern at Sriyog Consulting Pvt. Ltd. I designed a dashboard for managing projects and interns, focusing on a clean, minimalistic interface that was easy to read and use daily.",
-    overviewText2: "I collaborated closely with the project manager and developer to ensure the design was practical and consistent across modules, including inquiries, workforce, project management, history, profile, and sign-up/sign-in pages. Each module prioritized clarity, quick scanning, and actionable insights.",
-    colordescription: "Why these colors? to align with the company’s branding and maintain a consistent visual identity.",
-    colors: ["#F5F6FB", "#A0A5BA", "#5C5F6A", "#4B4B4B", "#292929" , "#000000" ],
+    galleryNote:
+      "Project visuals are not displayed due to company confidentiality rules.",
+
+    /* Overview */
+    overviewText1:
+      "This was my first professional UX/UI project as an intern at Sriyog Consulting Pvt. Ltd., where I designed a complete internal dashboard focused on clarity, minimal layout, and smooth navigation.",
+
+    overviewText2:
+      "I collaborated with the project manager and developers, using Figma components, Auto Layout, and consistent typography to ensure clean, practical, and scalable designs across all modules.",
+
+    /* Colors & Tools */
+    colordescription:
+      "Aligned with company branding to maintain a consistent visual identity.",
+    colors: [
+      "#F5F6FB", // Background / Cards / Sidebar / Top Bar
+      "#A0A5BA", // Secondary Text
+      "#5C5F6A", // Tertiary Buttons / UI Elements
+      "#4B4B4B", // Primary Panels / Sidebar Highlights
+      "#292929", // Titles / Headings
+      "#000000", // Primary Buttons
+    ],
+    tools: ["Figma", "Google Meet"],
+
+    /* Typography */
+    typography: [
+      {
+        title: "SFUIDisplay",
+        description:
+          "Used for headings, main titles, and prominent interface elements.",
+        image: SFUIDisplay,
+      },
+      {
+        title: "SFUIText",
+        description:
+          "Used for body text, labels, and secondary UI elements for readability.",
+        image: SFUIText,
+      },
+    ],
+
+    /* Impact */
+    impact: [
+      {
+        title:
+          "Problem 1: Original dashboard was cluttered with insufficient spacing and heavy shadows.",
+        description:
+          "Original dashboard was cluttered with insufficient spacing and heavy shadows.",
+        solution:
+          "Increased padding, spacing, and applied soft neuromorphic shadows.",
+        outcome: "Cleaner layout with better readability and a balanced visual hierarchy.",
+      },
+      {
+        title:
+          "Problem 2: Frequent requirement changes caused inconsistencies across modules.",
+        description:
+          "Frequent requirement changes caused inconsistencies across modules.",
+        solution:
+          "Standardized design components, color variables, and typography styles for faster revisions.",
+        outcome:
+          "Updates became consistent and efficient, reducing rework for designers and developers.",
+      },
+      {
+        title:
+          "Problem 3: Dashboard modules (Inquiries, Workforce, Projects) needed fast scanning and actionable insights.",
+        description:
+          "Dashboard modules (Inquiries, Workforce, Projects) needed fast scanning and actionable insights.",
+        solution:
+          "Implemented card views, sidebar layouts, interactive filters, and color-coded metrics.",
+        outcome:
+          "Improved usability and efficiency for daily administrative tasks.",
+      },
+      {
+        title:
+          "Problem 4: Sign-up, Sign-in, and Profile pages appeared cluttered and lacked focus.",
+        description:
+          "Sign-up, Sign-in, and Profile pages appeared cluttered and lacked focus.",
+        solution:
+          "Used glassmorphic effects and card-based layouts with hover interactions to highlight essential information.",
+        outcome: "Streamlined user experience and visually clear interfaces.",
+      },
+    ],
   },
 ];
 

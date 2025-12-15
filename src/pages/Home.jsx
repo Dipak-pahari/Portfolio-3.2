@@ -7,7 +7,6 @@ import SectionTitle from "../components/Section-title";
 import aboutimg from "../assets/about.png";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer.jsx";
-import { SiReact } from "react-icons/si";
 
 const Home = () => {
   const navigate = useNavigate();
