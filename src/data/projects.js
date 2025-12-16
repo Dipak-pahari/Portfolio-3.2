@@ -34,8 +34,8 @@ const projects = [
       "Project visuals are not displayed due to client confidentiality.",
 
     /* Overview */
-    overviewText1: "Savvy’s Collection description 1",
-    overviewText2: "Savvy’s Collection description 2",
+    overviewText1: "Savvy’s Collection is a client-based e-commerce website designed mainly for women to buy clothes and accessories. It features a clean, modern design with intuitive navigation and visually appealing product displays.",
+    overviewText2: "The website is fully responsive with over 26 pages, covering all essential sections like Home, Shop, Product Details, Cart, Checkout, About, and Contact, providing a smooth and seamless shopping experience across all devices.",
 
     /* Colors */
     colordescription: "Why these colors?These colors reflect Savvy’s vibrant and modern brand identity:",

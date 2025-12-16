@@ -106,15 +106,27 @@ function ProjectDetail() {
           <div className="Project-showcase">
             {project.galleryImages?.length > 0 ? (
               <div className="Image-grid">
-                {project.galleryImages.map((img, index) => (
-                  <img
-                    key={index}
-                    src={img}
-                    alt={`project-${index}`}
-                    className="grid-image"
-                    loading="eager"
-                  />
-                ))}
+                {project.galleryImages.map((img, index) => {
+                  // Ensure the image source is properly resolved
+                  const imgSrc = typeof img === 'string' ? img : 
+                               (img.default || (typeof img === 'object' ? img.src : ''));
+                  
+                  return (
+                    <img
+                      key={index}
+                      src={imgSrc}
+                      alt={`project-${index}`}
+                      className="grid-image"
+                      loading="eager"
+                      style={{
+                        maxWidth: '100%',
+                        height: 'auto',
+                        display: 'block',
+                        margin: '0 auto'
+                      }}
+                    />
+                  );
+                })}
               </div>
             ) : (
               <div className="Gallery-placeholder">
