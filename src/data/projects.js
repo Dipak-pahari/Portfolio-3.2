@@ -1,5 +1,5 @@
 import ProjectImage2 from "../assets/GardenSewa-thumbnail.png";
-import ProjectImage3 from "../assets/savvy's-thumbnail.png";
+import ProjectImage3 from "../assets/savvys-thumbnail.png";
 import Gimg3 from "../assets/GardenSewa404.png";
 import Gimg1 from "../assets/GardenSewaHome.png";
 import Gimg2 from "../assets/GardenSewaServices.png";

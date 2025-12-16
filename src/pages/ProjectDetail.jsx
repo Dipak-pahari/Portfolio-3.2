@@ -112,7 +112,7 @@ function ProjectDetail() {
                     src={img}
                     alt={`project-${index}`}
                     className="grid-image"
-                    loading="lazy"
+                    loading="eager"
                   />
                 ))}
               </div>
