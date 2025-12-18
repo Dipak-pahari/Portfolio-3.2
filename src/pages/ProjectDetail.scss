@@ -1,5 +1,14 @@
 @use "../index" as *;
 
+.Breadcrumb-text {
+  color: var(--colors-secondary-color-1);
+  @include desktop-instuction-text;
+}
+
+.Breadcrumb-text:hover {
+  color: var(--colors-primary-color-4);
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -25,7 +34,7 @@
   background: white;
   padding: 10px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .Project-detail-page {
@@ -345,7 +354,8 @@
 }
 
 .Impact-box:hover {
-  box-shadow: 0px 4px 6px -2px rgba(0, 0, 0, 0.05), 0px 10px 15px -3px rgba(0, 0, 0, 0.10);
+  box-shadow: 0px 4px 6px -2px rgba(0, 0, 0, 0.05),
+    0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 .Impact-title {
@@ -420,11 +430,11 @@
   .Image-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .Project-showcase {
     padding: 10px;
   }
-  
+
   .Project-showcase-container {
     padding: 0 20px;
   }
@@ -433,6 +443,10 @@
 @media (max-width: 1024px) {
   .Project-detail-card {
     padding: 96px 36px 36px 36px;
+  }
+
+  .Breadcrumb-text {
+    @include tablet-instuction-text;
   }
 
   .Text-container {
@@ -467,6 +481,10 @@
 @media (max-width: 580px) {
   .Project-detail-card {
     padding: 72px 24px 24px 24px;
+  }
+
+  .Breadcrumb-text {
+    @include mobile-instuction-text;
   }
 
   .Text-container {

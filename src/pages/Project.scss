@@ -1,0 +1,198 @@
+@use "../index" as *;
+
+/* =========================
+   PAGE CONTAINER
+========================= */
+.ProjectPage-project-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 180px;
+}
+
+/* =========================
+   DESCRIPTION
+========================= */
+.ProjectPage-Project-description {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  padding: 112px 272px 42px;
+  background-color: var(--colors-primary-color-1);
+  text-align: center;
+}
+
+.ProjectPage-Project-description span:first-child {
+  color: var(--colors-primary-color-4);
+  @include desktop-project-card-title;
+}
+
+.ProjectPage-Project-description span:last-child {
+  color: var(--colors-secondary-color-1);
+  @include desktop-nav-link-text-default;
+}
+
+/* =========================
+   PROJECTS SECTION
+========================= */
+.ProjectPage-allprojects-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 42px; /* desktop section spacing */
+}
+
+/* Grid */
+.ProjectPage-allprojects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+  padding: 0 42px;
+}
+
+/* =========================
+   CARD
+========================= */
+.ProjectPage-Project-card-full {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+  padding-bottom: 18px;
+
+  opacity: 0;
+  transform: translateY(26px);
+  animation: cardFadeUp 0.6s ease forwards;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.ProjectPage-Project-card-full.animate {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Entry animation */
+@keyframes cardFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover effect (desktop) */
+@media (min-width: 1025px) {
+  .ProjectPage-Project-card-full:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.18);
+  }
+}
+
+/* Click / active effect */
+.ProjectPage-Project-card-full:active {
+  transform: scale(0.97);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================
+   TAGS
+========================= */
+.ProjectPage-Project-card-tags {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 6px;
+  z-index: 2;
+}
+
+.ProjectPage-Project-tag {
+  @include desktop-project-card-txt;
+  color: #ffffff;
+  padding: 2px 8px;
+  background-color: #1a1a1a;
+}
+
+/* =========================
+   IMAGE
+========================= */
+.ProjectPage-Project-card-image-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.ProjectPage-Project-card-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+/* =========================
+   META
+========================= */
+.ProjectPage-Project-card-meta {
+  margin-top: 12px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.ProjectPage-Project-card-title {
+  @include desktop-project-title-dark;
+  color: var(--colors-primary-color-1);
+}
+
+/* =========================
+   TABLET
+========================= */
+@media (max-width: 1024px) {
+  .ProjectPage-project-container {
+    gap: 140px;
+  }
+
+  .ProjectPage-Project-description {
+    padding: 96px 36px 36px;
+  }
+
+  .ProjectPage-allprojects-container {
+    gap: 32px;
+  }
+
+  .ProjectPage-allprojects-grid {
+    padding: 0 36px;
+  }
+
+  .ProjectPage-Project-card-image {
+    height: 250px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+@media (max-width: 580px) {
+  .ProjectPage-project-container {
+    gap: 120px;
+  }
+
+  .ProjectPage-Project-description {
+    padding: 88px 24px 32px;
+  }
+
+  .ProjectPage-allprojects-container {
+    gap: 24px;
+  }
+
+  .ProjectPage-allprojects-grid {
+    padding: 0 24px;
+  }
+
+  .ProjectPage-Project-card-image-wrapper {
+    aspect-ratio: 1 / 1;
+  }
+
+  .ProjectPage-Project-card-image {
+    height: 100%;
+  }
+}

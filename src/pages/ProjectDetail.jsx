@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import projects from "../data/projects";
 import "./ProjectDetail.scss";
@@ -60,6 +60,7 @@ function ProjectDetailBox({ label, value, isLink, isResponsibilities }) {
 
 /* ================= Page ================= */
 function ProjectDetail() {
+  const navigate = useNavigate();
   const { projectId } = useParams();
   useRevealOnScroll();
 
@@ -73,7 +74,17 @@ function ProjectDetail() {
   return (
     <div className="Project-detail-page page-enter">
       <div className="Project-detail-container">
+        {/* ================= Project Card ================= */}
         <div className="Project-detail-card reveal">
+          {/* ================= Breadcrumb ================= */}
+        <div className="Breadcrumb-container reveal">
+          <span
+            className="Breadcrumb-text"
+            onClick={() => navigate("/project")}
+          >
+            ← Back to Projects
+          </span>
+        </div>
           <div className="Project-dates">
             <span className="Time-container">{project.date}</span>
             {project.type}
@@ -101,16 +112,16 @@ function ProjectDetail() {
           </div>
         </div>
 
-        {/* Gallery */}
+        {/* ================= Gallery ================= */}
         <div className="Project-showcase-container reveal">
           <div className="Project-showcase">
             {project.galleryImages?.length > 0 ? (
               <div className="Image-grid">
                 {project.galleryImages.map((img, index) => {
-                  // Ensure the image source is properly resolved
-                  const imgSrc = typeof img === 'string' ? img : 
-                               (img.default || (typeof img === 'object' ? img.src : ''));
-                  
+                  const imgSrc =
+                    typeof img === "string"
+                      ? img
+                      : img.default || (typeof img === "object" ? img.src : "");
                   return (
                     <img
                       key={index}
@@ -118,26 +129,19 @@ function ProjectDetail() {
                       alt={`project-${index}`}
                       className="grid-image"
                       loading="eager"
-                      style={{
-                        maxWidth: '100%',
-                        height: 'auto',
-                        display: 'block',
-                        margin: '0 auto'
-                      }}
+                      style={{ maxWidth: "100%", height: "auto", margin: "0 auto" }}
                     />
                   );
                 })}
               </div>
             ) : (
-              <div className="Gallery-placeholder">
-                {project.galleryNote}
-              </div>
+              <div className="Gallery-placeholder">{project.galleryNote}</div>
             )}
           </div>
         </div>
       </div>
 
-      {/* Overview */}
+      {/* ================= Overview ================= */}
       <div className="Project-overview-section reveal">
         <SectionTitle title="OVERVIEW" />
         <div className="Text-container">
@@ -146,40 +150,31 @@ function ProjectDetail() {
         </div>
       </div>
 
-      {/* Design System */}
+      {/* ================= Design System ================= */}
       <div className="Design-section reveal">
         <SectionTitle title="DESIGN SYSTEM" />
 
-        {/* Colors */}
         <div className="Color-pallette-container">
           <div className="Color-pallette-text">
             <span>Color Palette</span>
             <span>{project.colordescription}</span>
           </div>
-
           <div className="Color-palette">
             {project.colors.map((color, i) => (
-              <div
-                key={i}
-                className="colors-box"
-                style={{ backgroundColor: color }}
-              >
+              <div key={i} className="colors-box" style={{ backgroundColor: color }}>
                 {color}
               </div>
             ))}
           </div>
         </div>
 
-        {/* Typography */}
         {project.typography?.length > 0 && (
           <div className="Typography-container">
             {project.typography.map((item, i) => (
               <div key={i} className="Typography-box">
                 <div className="Typography-text">
                   <span className="Typography-title">{item.title}</span>
-                  <span className="Typography-description">
-                    {item.description}
-                  </span>
+                  <span className="Typography-description">{item.description}</span>
                 </div>
                 <img src={item.image} alt={item.title} />
               </div>
@@ -188,7 +183,7 @@ function ProjectDetail() {
         )}
       </div>
 
-      {/* Impact */}
+      {/* ================= Impact ================= */}
       {project.impact?.length > 0 && (
         <div className="Impact-section reveal">
           <SectionTitle title="IMPACT" />
@@ -196,15 +191,12 @@ function ProjectDetail() {
             {project.impact.map((item, i) => (
               <div key={i} className="Impact-box">
                 <div className="Problem-no">PROBLEM {i + 1}</div>
-
                 <div className="Project-texts">
                   <span className="Impact-title">{item.title}</span>
-
                   <div className="Impact-meta">
                     <span className="Impact-label">Solution:</span>
                     <span className="description">{item.solution}</span>
                   </div>
-
                   <div className="Impact-meta">
                     <span className="Impact-label">Outcome:</span>
                     <span className="description">{item.outcome}</span>
@@ -213,11 +205,11 @@ function ProjectDetail() {
               </div>
             ))}
           </div>
-
           <div className="Back-to-project">
             <PrimaryButton
               text="VIEW ALL PROJECT"
               className="view-all-project"
+              onClick={() => navigate("/project")}
             />
           </div>
         </div>

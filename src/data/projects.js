@@ -97,12 +97,17 @@ const projects = [
           "Smooth checkout process and consistent design across devices.",
       },
     ],
+
+    //ProjectPage tags
+    tags: [
+      { text: "New", color: "#df2427ff" },
+    ],
   },
 
   /* ===================== GARDENSEWA ===================== */
   {
     id: "gardensewa",
-    name: "GardenSewa",
+    name: "GardenSewa ",
     type: "E-commerce Website Design",
     typeLabel: "Company",
     date: "2025",
@@ -183,6 +188,11 @@ const projects = [
         outcome:
           "Smooth collaboration and implementation despite team size and workflow changes.",
       },
+    ],
+
+    //ProjectPageTags
+    tags: [
+      { text: "Website Design", color: "#181818" },
     ],
   },
 
@@ -281,6 +291,11 @@ const projects = [
           "Used glassmorphic effects and card-based layouts with hover interactions to highlight essential information.",
         outcome: "Streamlined user experience and visually clear interfaces.",
       },
+    ],
+
+    //ProjectPageTags
+    tags: [
+      { text: "Dashboard Design", color: "#181818" },
     ],
   },
 ];
