@@ -1,0 +1,349 @@
+@use "../index" as *;
+
+.AboutPageContainer {
+  margin-top: 80px;
+  padding-top: 92px;
+  display: flex;
+  flex-direction: column;
+  gap: 180px;
+}
+
+.AboutPage-About-section-container {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 42px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.AboutPage-About-section-container img {
+  width: 38%;
+  height: auto;
+  position: relative;
+  top: -24px;
+}
+
+.AboutPage-About-section-content {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  gap: 42px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0px 146px 0px 146px;
+}
+
+.AboutPage-About-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 36px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.AboutPage-About-section-text {
+  @include desktop-project-title-light;
+  color: var(--colors-body-text);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: justify;
+}
+
+.AboutPage-SkillDescription {
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.AboutPage-skills-section-container {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+}
+
+.AboutPage-skills-card-container {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 32px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0px 146px 0px 146px;
+}
+
+.SkillCard {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 24px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 32px;
+  border: 1px solid #cccccc;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.16);
+}
+
+.SkillTitle {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 16px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  @include desktop-section-title;
+  color: var(--colors-primary-color-1);
+}
+
+.AboutPage-SkillDescription ul {
+  list-style-type: disc; /* circle bullets */
+  padding-left: 20px; /* space for bullets */
+  margin: 0;
+  @include desktop-project-card-txt;
+  color: var(--colors-body-text);
+}
+
+.AboutPage-SkillDescription li {
+  margin-bottom: 6px; /* optional spacing between items */
+}
+
+.ToolsCardContainer {
+  width: 100%;
+  @include desktop-project-card-txt;
+  color: var(--colors-body-text);
+
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 24px;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 32px;
+  border: 1px solid #cccccc;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.16);
+}
+
+/* Tools Grid */
+.AboutPage-tool-section-container {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
+
+  .ToolsCardGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); // 4 per row on desktop
+    gap: 24px;
+    padding: 0 146px;
+  }
+}
+
+.AboutPage-history-section-container {
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+}
+
+.WorkHistoryCardGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    padding: 0px 146px;
+}
+
+.WorkHistoryCardContainer {
+  width: 100%;
+
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 24px;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 32px;
+  border: 1px solid #cccccc;
+  box-sizing: border-box;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.16);
+}
+
+.WorkHistoryCardDatas {
+  width: 100%;
+
+  border-radius: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 24px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.WorkHistoryCardDate {
+   display: inline-block;   /* Makes the div hug its content */
+  white-space: nowrap; 
+
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 6px;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 12px;
+  background-color: #181818;
+  @include desktop-project-title-light;
+  color: var(--colors-primary-color-4);
+}
+
+.WorkHistoryCardDescription {
+  @include desktop-project-card-txt;
+  color: var(--colors-body-text);
+  width: 100%;
+}
+
+.WorkHistoryCardMetaData {
+  width: 100%;
+ 
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 8px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.WorkHistoryCardMetaData p:first-child {
+    @include desktop-project-card-title;
+    color: var(--colors-primary-color-3);
+}
+
+.WorkHistoryCardMetaData p:last-child {
+    @include desktop-project-title-light;
+    color: var(--colors-body-text);
+}
+
+.AboutPage-certificate-section-container{
+    display: flex;
+    flex-direction: column;
+    gap: 42px;
+}
+
+.CertificateLinks {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+
+  a {
+    @include desktop-project-card-txt;
+    color: #007bff; // blue color for links
+    text-decoration: underline;
+  }
+}
+
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .AboutPageContainer {
+    margin-top: 72px;
+    padding-top: 82px;
+  }
+
+  .AboutPage-About-section-container {
+    gap: 28px;
+  }
+
+  .AboutPage-About-section-container img {
+    width: 54%;
+    height: auto;
+    position: relative;
+    top: -52px;
+  }
+
+  .AboutPage-About-section-content {
+    gap: 38px;
+    padding: 0px 36px 0px 36px;
+  }
+
+  .AboutPage-About-section {
+    gap: 30px;
+  }
+
+  .AboutPage-About-section-text {
+    @include tablet-project-title-light;
+    gap: 18px;
+    text-align: left;
+  }
+
+  .AboutPage-tool-section-container {
+    .ToolsCardGrid {
+      grid-template-columns: repeat(2, 1fr); // 2 per row on tablet
+      gap: 18px;
+      padding: 0 36px;
+    }
+  }
+}
+
+/* Mobile */
+@media (max-width: 580px) {
+  .AboutPageContainer {
+    margin-top: 64px;
+    padding-top: 64px;
+  }
+
+  .AboutPage-About-section-container {
+    gap: 32px;
+  }
+
+  .AboutPage-About-section-container img {
+    width: auto;
+    max-height: 280px;
+    min-height: 220px;
+    position: static;
+  }
+
+  .AboutPage-About-section-content {
+    align-items: center;
+    flex-direction: column-reverse;
+    gap: 32px;
+    padding: 0px 24px 0px 24px;
+  }
+
+  .AboutPage-About-section {
+    gap: 26px;
+    align-items: center;
+  }
+
+  .AboutPage-About-section-text {
+    @include mobile-project-title-light; // stack <p> vertically
+    gap: 14px; // now gap works!
+    text-align: justify;
+    align-items: center; // align text to left
+  }
+
+  .AboutPage-tool-section-container {
+    .ToolsCardGrid {
+      grid-template-columns: 1fr; // 1 per row on mobile
+      gap: 16px;
+      padding: 0 24px;
+    }
+  }
+}

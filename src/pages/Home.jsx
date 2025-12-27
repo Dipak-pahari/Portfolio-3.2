@@ -79,10 +79,12 @@ const Home = () => {
             <div className="About-section-text">
               <p>Hi, I’m Dipak Pahari.</p>
               <p>
-                UX/UI Designer & Front-End Developer. I create clear, modern
-                designs and turn them into responsive front-end experiences
-                using React. I continuously refine my skills and improve with
-                each project.
+                I’m a UX/UI Designer with 1.5 years of experience creating
+                intuitive, modern interfaces for web and mobile applications. I
+                also have basic front-end skills in React, HTML, CSS, and
+                JavaScript, which help me understand how designs are implemented
+                in code. I’m currently pursuing my Bachelor’s in Computer
+                Science at Divya Gyan College.
               </p>
             </div>
             <PrimaryButton

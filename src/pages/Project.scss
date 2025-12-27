@@ -66,7 +66,7 @@
   transform: translateY(26px);
   animation: cardFadeUp 0.6s ease forwards;
 
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease;
 }
 
 .ProjectPage-Project-card-full.animate {
@@ -84,9 +84,9 @@
 
 /* Hover effect (desktop) */
 @media (min-width: 1025px) {
-  .ProjectPage-Project-card-full:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.18);
+  .ProjectPage-Project-card-full:hover
+  .ProjectPage-Project-card-image {
+    filter: brightness(0.85);
   }
 }
 
