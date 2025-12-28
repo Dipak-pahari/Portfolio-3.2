@@ -1,0 +1,83 @@
+@use "../index" as *;
+
+.PrimaryButtonSec-container {
+    width: 100%;
+    border-radius: 0px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 13px 24px;
+
+    background-color: var(--color-bg);
+    border: 1px solid var(--colors-primary-color-1);
+
+    box-shadow: 7px 7px 0px 0px rgba(24, 24, 24, 0.20);
+    transition: all 0.25s ease;
+    box-sizing: border-box;
+}
+
+.PrimaryButtonSec-container span {
+    @include desktop-secondary-button-default;
+    color: var(--colors-primary-color-1);
+}
+
+/* Hover */
+.PrimaryButtonSec-container.hover {
+    box-shadow: 4px 4px 0px 0px rgba(24, 24, 24, 0.30);
+    background-color: var(--colors-primary-color-1);
+    transform: scale(1.04);
+    box-sizing: border-box;
+}
+
+.PrimaryButtonSec-container.hover span {
+    color: white;
+}
+
+/* Active */
+.PrimaryButtonSec-container.active {
+    background-color: #181818;
+    transform: scale(0.95);
+    box-shadow: inset 2px 2px 5px rgba(24, 24, 24, 0.30);
+}
+
+.PrimaryButtonSec-container.active span {
+    color: var(--colors-primary-color-4);
+}
+
+/* Responsive */
+@media (max-width: 1400px) {
+  .PrimaryButtonSec-container {
+      padding: 10px 4px;
+  }
+
+  .PrimaryButtonSec-container span {
+      font-family: "Blinker", sans-serif;
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 24px;
+  }
+
+  .PrimaryButtonSec-container.hover {
+      transform: scale(1.02);
+  }
+}
+
+@media (max-width: 578px) {
+  .PrimaryButtonSec-container {
+      padding: 8px 2px;
+  }
+
+  .PrimaryButtonSec-container span {
+      font-family: "Blinker", sans-serif;
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 20px;
+  }
+
+  .PrimaryButtonSec-container.hover {
+      transform: scale(1.01);
+  }
+}

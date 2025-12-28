@@ -77,13 +77,13 @@ const Home = () => {
         <div className="About-section-content">
           <div className="About-section">
             <div className="About-section-text">
-              <p>Hi, I’m Dipak Pahari.</p>
+              <p>Hi, I'm Dipak Pahari.</p>
               <p>
-                I’m a UX/UI Designer with 1.5 years of experience creating
+                I'm a UX/UI Designer with 1.5 years of experience creating
                 intuitive, modern interfaces for web and mobile applications. I
                 also have basic front-end skills in React, HTML, CSS, and
                 JavaScript, which help me understand how designs are implemented
-                in code. I’m currently pursuing my Bachelor’s in Computer
+                in code. I'm currently pursuing my Bachelor's in Computer
                 Science at Divya Gyan College.
               </p>
             </div>

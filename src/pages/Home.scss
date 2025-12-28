@@ -166,7 +166,6 @@
   transform: translateY(0);
 }
 
-
 .About-section-container {
   width: 100%;
 
@@ -261,13 +260,16 @@
     gap: 18px;
     text-align: left;
   }
+  .About-section-text p:last-child {
+    @include tablet-project-title-light;
+  }
 
-.About-section-container img {
-  width: 54%;
-  height: auto;
-  position: relative;
-  top: -52px;
-}
+  .About-section-container img {
+    width: 54%;
+    height: auto;
+    position: relative;
+    top: -52px;
+  }
 
   .About-section {
     gap: 30px;
@@ -332,7 +334,7 @@
     max-height: 280px;
     min-height: 220px;
     position: static;
-}
+  }
 
   .About-section {
     gap: 26px;
@@ -351,5 +353,8 @@
     gap: 14px; // now gap works!
     text-align: justify;
     align-items: center; // align text to left
+  }
+  .About-section-text p:last-child {
+    @include mobile-project-title-light;
   }
 }

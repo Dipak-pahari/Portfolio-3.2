@@ -157,17 +157,17 @@
 }
 
 .AboutPage-history-section-container {
-    display: flex;
-    flex-direction: column;
-    gap: 42px;
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
 }
 
 .WorkHistoryCardGrid {
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-    width: 100%;
-    padding: 0px 146px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  padding: 0px 146px;
 }
 
 .WorkHistoryCardContainer {
@@ -200,8 +200,8 @@
 }
 
 .WorkHistoryCardDate {
-   display: inline-block;   /* Makes the div hug its content */
-  white-space: nowrap; 
+  display: inline-block; /* Makes the div hug its content */
+  white-space: nowrap;
 
   flex-direction: row;
   flex-wrap: nowrap;
@@ -222,7 +222,7 @@
 
 .WorkHistoryCardMetaData {
   width: 100%;
- 
+
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -232,19 +232,19 @@
 }
 
 .WorkHistoryCardMetaData p:first-child {
-    @include desktop-project-card-title;
-    color: var(--colors-primary-color-3);
+  @include desktop-project-card-title;
+  color: var(--colors-primary-color-3);
 }
 
 .WorkHistoryCardMetaData p:last-child {
-    @include desktop-project-title-light;
-    color: var(--colors-body-text);
+  @include desktop-project-title-light;
+  color: var(--colors-body-text);
 }
 
-.AboutPage-certificate-section-container{
-    display: flex;
-    flex-direction: column;
-    gap: 42px;
+.AboutPage-certificate-section-container {
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
 }
 
 .CertificateLinks {
@@ -259,6 +259,58 @@
   }
 }
 
+.BannerContainer {
+  width: 100%;
+
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 42px;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 54px 0px;
+  background: radial-gradient(
+    circle,
+    #ffffff 0%,
+    #fbfbfb 59.29%,
+    #f9f9f9 75.81%,
+    #f4f4f4 100%
+  );
+}
+
+.BannerButtonContainer {
+  width: 542px;
+
+  border-radius: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 42px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.BannerTextContainer {
+  width: 100%;
+
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 12px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.BannerTextContainer p:first-child {
+  @include desktop-footer-touch-link;
+  color: var(--colors-primary-color-1);
+}
+p:last-child {
+  @include desktop-project-title-light;
+  color: var(--colors-body-text);
+}
 
 /* Tablet */
 @media (max-width: 1024px) {
@@ -288,7 +340,6 @@
   }
 
   .AboutPage-About-section-text {
-    @include tablet-project-title-light;
     gap: 18px;
     text-align: left;
   }
@@ -300,6 +351,85 @@
       padding: 0 36px;
     }
   }
+
+  .AboutPage-skills-card-container {
+    flex-wrap: wrap; /* allow cards to wrap */
+    gap: 24px;
+    padding: 0px 36px;
+  }
+
+  .SkillCard {
+    width: calc(50% - 12px); /* 2 cards per row */
+  }
+
+  .SkillTitle {
+    @include tablet-section-title;
+  }
+
+  .AboutPage-SkillDescription ul {
+    @include tablet-project-card-txt;
+  }
+
+  .WorkHistoryCardGrid {
+    padding: 0px 36px;
+    gap: 20px;
+  }
+
+  .WorkHistoryCardContainer {
+    padding: 28px;
+  }
+
+  .WorkHistoryCardDatas {
+    flex-wrap: wrap; /* allow date to move */
+    gap: 16px;
+  }
+
+  .WorkHistoryCardDate {
+    @include tablet-project-title-light;
+  }
+
+  .WorkHistoryCardDescription {
+    @include tablet-project-card-txt;
+  }
+
+  .WorkHistoryCardMetaData p:first-child {
+    @include tablet-project-card-title;
+  }
+
+  .WorkHistoryCardMetaData p:last-child {
+    @include tablet-project-title-light;
+  }
+
+  .CertificateLinks {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .BannerContainer {
+    gap: 36px;
+    padding: 48px 24px;
+  }
+
+  .BannerButtonContainer {
+    width: 100%;
+    justify-content: center;
+    gap: 32px;
+  }
+
+  .BannerTextContainer {
+    gap: 10px;
+    padding: 0 36px;
+    text-align: center;
+  }
+
+  .BannerTextContainer p:first-child {
+    @include tablet-footer-touch-link;
+  }
+
+  .BannerTextContainer p:last-child {
+    @include tablet-project-title-light;
+  }
+  
 }
 
 /* Mobile */
@@ -332,11 +462,14 @@
     align-items: center;
   }
 
-  .AboutPage-About-section-text {
+  .AboutPage-About-section-text p{
     @include mobile-project-title-light; // stack <p> vertically
     gap: 14px; // now gap works!
     text-align: justify;
     align-items: center; // align text to left
+  }
+  .AboutPage-About-section-text P:first-child{
+    text-align: center;
   }
 
   .AboutPage-tool-section-container {
@@ -346,4 +479,111 @@
       padding: 0 24px;
     }
   }
+
+  .AboutPage-skills-card-container {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0px 24px;
+  }
+
+  .SkillCard {
+    width: 100%;
+    padding: 24px;
+  }
+
+  .SkillTitle {
+    @include mobile-section-title;
+    gap: 12px;
+  }
+
+  .AboutPage-SkillDescription ul {
+    @include mobile-project-card-txt;
+  }
+
+  .WorkHistoryCardGrid {
+    padding: 0px 24px;
+    gap: 16px;
+  }
+
+  .WorkHistoryCardContainer {
+    padding: 24px;
+  }
+
+  .WorkHistoryCardDatas {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .WorkHistoryCardDate {
+    align-self: flex-start; /* date hugs content */
+    @include mobile-project-title-light;
+  }
+
+  .WorkHistoryCardDescription {
+    @include mobile-project-card-txt;
+  }
+
+  .WorkHistoryCardMetaData p:first-child {
+    @include mobile-project-card-title;
+  }
+
+  .WorkHistoryCardMetaData p:last-child {
+    @include mobile-project-title-light;
+  }
+
+  .CertificateLinks {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .CertificateLinks a {
+    word-break: break-word; /* prevents overflow */
+  }
+
+  .BannerContainer {
+    gap: 28px;
+    padding: 40px 24px;
+  }
+
+  .BannerButtonContainer {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .BannerTextContainer {
+    gap: 8px;
+    padding: 0;
+    text-align: center;
+  }
+
+  .BannerTextContainer p:first-child {
+    @include mobile-footer-touch-link;
+  }
+
+  .BannerTextContainer p:last-child {
+    @include mobile-project-title-light;
+  }
+
+    /* Target only the SectionTitle inside the Certificates section */
+  .AboutPage-certificate-section-container > .Section-title {
+    display: inline-block;       // container hugs the content
+    padding: 6px 28px;           // spacing inside the box
+    background-color: var(--colors-primary-color-1);
+    box-sizing: border-box;      // include padding in width
+    max-width: 70%;             // prevent overflow
+  }
+
+  .AboutPage-certificate-section-container > .Section-title span {
+    display: inline;             // inline lets text wrap naturally
+    white-space: normal;         // allow wrapping to multiple lines
+    word-wrap: break-word;       // break long words if needed
+  }
+
+  .BannerButtonContainer {
+    padding: 0px 26px;
+  }
+  
 }
