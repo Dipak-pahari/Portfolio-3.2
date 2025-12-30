@@ -1,0 +1,308 @@
+@use "../index" as *;
+
+.ContactPageContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+}
+
+.desktop-hide {
+  display: none;
+}
+
+.ContactPageTopic {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: center;
+  padding: 112px 272px 42px;
+  background-color: var(--colors-primary-color-1);
+  text-align: center;
+}
+
+.ContactPageTopic span:first-child {
+  color: var(--colors-primary-color-4);
+  @include desktop-project-card-title;
+}
+
+.ContactPageTopic span:last-child {
+  color: var(--colors-secondary-color-1);
+  @include desktop-nav-link-text-default;
+}
+
+.SendMessageContainer {
+  width: 100%;
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 42px;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0px 146px 0px 0px;
+}
+
+.ContactContainer {
+  width: 100%;
+  padding: 0px 146px 0px 146px;
+  border-radius: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 92px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.ContactInfoBoxGrid {
+  width: 100%;
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 24px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.ContactInfoContainer {
+  width: 100%;
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 42px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.ContactInfoBox {
+  width: 100%;
+  border-radius: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 16px;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.ContactInfoBoxTexts {
+  width: 100%;
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 2px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.AvailableContainerContainer {
+  width: 100%;
+}
+
+.ContactInfoBoxTexts p:first-child {
+  font-family: "Blinker", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  text-align: justify;
+  white-space: nowrap;
+  color: #4c4c4c;
+}
+
+.ContactInfoBoxTexts p:last-child {
+  font-family: "Blinker", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  text-align: justify;
+  white-space: nowrap;
+  color: #181818;
+}
+
+.SendMessageBox {
+  width: 100%;
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 48px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.SendMessage {
+  width: 100%;
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 24px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.TypeBoxContainer {
+  width: 100%;
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 12px;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  @include desktop-project-card-txt;
+  color: var(--colors-primary-color-1);
+}
+
+.TypeBox {
+  width: 100%;
+  border-radius: 0px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 10px;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 12px 16px;
+  border: 1px solid;
+  border-color: var(--colors-secondary-color-2);
+  box-sizing: border-box;
+  background-color: var(--colors-bg-color);
+
+  @include desktop-secondary-button-default;
+  color: var(--colors-secondary-color-2);
+  transition: border-color 0.3s ease;
+  &:focus {
+    outline: none;
+    border: 1.3px solid;
+    border-color: #000000; // only change border color
+  }
+  &:focus::placeholder {
+    color: transparent; // disappears on focus
+  }
+}
+
+.TypeBox.error {
+  border-color: red; // red if empty
+}
+
+.AvailableContainer {
+  width: 100%;
+  border-radius: 0px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  gap: 16px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 18px;
+  background-color: #f5f5f5;
+}
+
+.AvailableContainer p:first-child {
+  @include desktop-nav-link-text-default;
+  color: var(--colors-primary-color-1);
+}
+
+.AvailableContainer p:last-child {
+  @include desktop-project-card-txt;
+  color: var(--colors-secondary-color-3);
+}
+
+// Tablet
+@media (max-width: 1024px) {
+  .ContactContainer {
+    margin-top: -100px;
+  }
+  .AvailableContainerContainer {
+    padding: 0 36px;
+  }
+
+  .ContactInfoBoxGrid {
+    padding: 0 36px;
+  }
+  .desktop-hide {
+    display: block;
+  }
+  .ContactPageContainer {
+    gap: 140px;
+  }
+
+  .ContactPageTopic {
+    padding: 96px 36px 36px;
+  }
+
+  // Tablet typography
+  .ContactPageTopic span:first-child {
+    @include tablet-project-card-title;
+  }
+
+  .ContactPageTopic span:last-child {
+    @include tablet-nav-link-text-default;
+  }
+
+  .SendMessageContainer,
+  .ContactContainer {
+    flex-direction: column;
+    gap: 36px;
+    padding: 0px;
+  }
+
+  .ContactInfoContainer {
+    order: 2;
+    margin-top: 120px;
+  }
+
+  .SendMessageBox {
+    order: 1;
+    padding: 0 36px;
+  }
+}
+
+// Mobile
+@media (max-width: 580px) {
+  .ContactContainer {
+    margin-top: -100px;
+  }
+  .AvailableContainerContainer {
+    padding: 0 24px;
+  }
+  .ContactInfoContainer {
+    order: 2;
+    margin-top: 100px;
+  }
+
+  .SendMessageBox {
+    order: 1;
+    padding: 0 24px;
+    gap: 36px;
+  }
+
+  .desktop-hide {
+    display: block;
+  }
+  .ContactContainer,
+  .SendMessageContainer {
+    flex-direction: column;
+    gap: 24px;
+    padding: 0px;
+  }
+
+  .SendMessageContainer {
+    order: 1; // comes first
+  }
+
+  // Mobile typography
+  .ContactPageTopic span:first-child {
+    @include mobile-project-card-title;
+  }
+
+  .ContactPageTopic span:last-child {
+    @include mobile-nav-link-text-default;
+  }
+}

@@ -82,13 +82,13 @@ function Footer() {
       {/* Lower Footer */}
       <div className="Lower-footer Footer-animate" ref={lowerRef}>
         <div className="Social-links">
-          <a href="#">
+          <a href="https://www.behance.net/dipakpahari1" target="_blank" rel="noopener noreferrer">
             Behance <img src={FooterArrow} alt="Arrow" className="arrow" />
           </a>
-          <a href="#">
+          <a href="https://www.linkedin.com/in/iamu" target="_blank" rel="noopener noreferrer" >
             LinkedIn <img src={FooterArrow} alt="Arrow" className="arrow" />
           </a>
-        </div>
+        </div> 
         <span>© 2025 Dipak Pahari · All Rights Reserved</span>
       </div>
     </footer>
