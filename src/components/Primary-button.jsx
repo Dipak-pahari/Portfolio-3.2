@@ -1,12 +1,21 @@
 import { useState } from "react";
 import "./Primary-button.scss";
 
-function PrimaryButton({ text, onClick, style = {}, className = "" }) {
+function PrimaryButton({
+  text,
+  onClick,
+  style = {},
+  className = "",
+  type = "button",
+  form,
+}) {
   const [hover, setHover] = useState(false);
   const [active, setActive] = useState(false);
 
   return (
-    <div
+    <button
+      type={type}
+      form={form}
       className={`Primary-button-container ${hover ? "hover" : ""} ${
         active ? "active" : ""
       } ${className}`}
@@ -18,7 +27,7 @@ function PrimaryButton({ text, onClick, style = {}, className = "" }) {
       onClick={onClick}
     >
       <span>{text}</span>
-    </div>
+    </button>
   );
 }
 

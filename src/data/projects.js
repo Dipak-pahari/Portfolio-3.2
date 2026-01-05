@@ -1,18 +1,3 @@
-import ProjectImage2 from "../assets/GardenSewa-thumbnail.png";
-import ProjectImage3 from "../assets/savvys-thumbnail.png";
-import Gimg3 from "../assets/GardenSewa404.png";
-import Gimg1 from "../assets/GardenSewaHome.png";
-import Gimg2 from "../assets/GardenSewaServices.png";
-import SourceSansProImg from "../assets/SourceSansPro.png";
-import SFUIDisplay from "../assets/SFUIDisplay.png";
-import SFUIText from "../assets/SFUIText.png";
-import un from "../assets/un.png";
-import Simg4 from "../assets/Homepage.png";
-import Simg3 from "../assets/Cart.png";
-import Simg2 from "../assets/ProductDetail.png";
-import Simg1 from "../assets/Shop.png";
-import Urbanist from "../assets/Urbanist.png";
-
 const projects = [
   /* ===================== SAVVY ===================== */
   {
@@ -24,12 +9,15 @@ const projects = [
     client: "E-commerce Brand (Confidential)",
     role: "UI/UX Designer",
     live: "Unavailable",
-    image: ProjectImage3,
+    image: "/projects/savvy/main.png",
     detailPage: "/project/savvy",
     responsibilities: "Temporary responsibilities for Savvy project",
 
     /* Gallery */
-    galleryImages: [Simg1, Simg2, Simg3, Simg4],
+    galleryImages: ["/projects/savvy/Shop.png",
+      "/projects/savvy/ProductDetail.png",
+      "/projects/savvy/Cart.png",
+      "/projects/savvy/Homepage.png",],
     galleryNote:
       "Project visuals are not displayed due to client confidentiality.",
 
@@ -54,7 +42,7 @@ const projects = [
         title: "Typography — Lexend",
         description:
           "Used to create a friendly, readable, and modern shopping experience.",
-        image: Urbanist,
+        image: "/projects/savvy/Urbanist.png",
       },
     ],
 
@@ -114,13 +102,16 @@ const projects = [
     client: "SRIYOG Consulting",
     role: "UI/UX Designer (Team Lead)",
     live: "https://www.gardensewa.com/",
-    image: ProjectImage2,
+    image: "/projects/gardensewa/main.png",
     detailPage: "/project/gardensewa",
     responsibilities:
       "Website Design • User Research • Wireframing • Prototyping",
 
     /* Gallery */
-    galleryImages: [Gimg1, Gimg2, Gimg3],
+    galleryImages: ["/projects/gardensewa/Homepage.png",
+      "/projects/gardensewa/Services.png",
+      "/projects/gardensewa/404.png",
+    ],
 
     /* Overview */
     overviewText1:
@@ -146,7 +137,7 @@ const projects = [
         title: "Primary Typeface — Inter",
         description:
           "Used for headings and key UI elements to maintain clarity.",
-        image: SourceSansProImg,
+        image: "/projects/gardensewa/SourceSansPro.png",
       },
     ],
 
@@ -206,7 +197,7 @@ const projects = [
     client: "SRIYOG Consulting",
     role: "UI/UX Designer",
     live: "Unavailable",
-    image: un,
+    image: "/projects/un.png",
     detailPage: "/project/sriyog-dashboard",
     responsibilities: "Dashboard Design • User Research • Prototyping",
 
@@ -241,13 +232,13 @@ const projects = [
         title: "SFUIDisplay",
         description:
           "Used for headings, main titles, and prominent interface elements.",
-        image: SFUIDisplay,
+        image: "/projects/sriyog-dashboard/SFUIDisplay.png",
       },
       {
         title: "SFUIText",
         description:
           "Used for body text, labels, and secondary UI elements for readability.",
-        image: SFUIText,
+        image:  "/projects/sriyog-dashboard/SFUIText.png",
       },
     ],
 

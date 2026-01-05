@@ -2,18 +2,27 @@
 
 .Primary-button-container {
     width: 100%;
-    
+
+    /* reset button defaults */
+    border: 1px solid transparent; /* 🔥 KEY FIX */
+    outline: none;
+    background: none;
+    appearance: none;
+    cursor: pointer;
+    box-sizing: border-box; /* 🔥 KEY FIX */
+
     border-radius: 0px;
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
     gap: 10px;
     justify-content: center;
     align-items: center;
     padding: 13px 24px;
+
     background-color: var(--colors-primary-color-1);
     box-shadow: 7px 7px 0px 0px rgba(24, 24, 24, 0.20);
-    transition: all 0.25s ease;
+
+    transition: box-shadow 0.25s ease, background-color 0.25s ease;
 }
 
 .Primary-button-container span {
@@ -21,43 +30,44 @@
     color: var(--colors-primary-color-4);
 }
 
+/* HOVER — NO SIZE CHANGE */
 .Primary-button-container.hover {
     box-shadow: 4px 4px 0px 0px rgba(24, 24, 24, 0.30);
     background-color: var(--colors-primary-color-4);
-    border: 1px solid var(--colors-secondary-color-3);
-    box-sizing: border-box;
-    transform: scale(1.04);
+    border-color: var(--colors-secondary-color-3); /* 🔥 only color changes */
 }
 
 .Primary-button-container.hover span {
-  color: var(--colors-primary-color-1);
+    color: var(--colors-primary-color-1);
 }
 
+/* ACTIVE */
 .Primary-button-container.active {
     background-color: #181818;
-    transform: scale(0.95);
     box-shadow: inset 2px 2px 5px rgba(24, 24, 24, 0.30);
 }
 
 .Primary-button-container.active span {
-  color: var(--colors-primary-color-4);
+    color: var(--colors-primary-color-4);
 }
 
+/* focus (keyboard users) */
+.Primary-button-container:focus-visible {
+    box-shadow: 0 0 0 2px var(--colors-secondary-color-3);
+}
+
+/* responsive — unchanged */
 @media (max-width: 1400px) {
   .Primary-button-container {
       padding: 10px 4px;
   }
 
   .Primary-button-container span {
-        font-family: "Blinker", sans-serif;
-        font-size: 20px;
-        font-weight: 300;
-        line-height: 24px;
+      font-family: "Blinker", sans-serif;
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 24px;
   }
-
-  .Primary-button-container.hover {
-    transform: scale(1.02);
-}
 }
 
 @media (max-width: 578px) {
@@ -66,13 +76,9 @@
   }
 
   .Primary-button-container span {
-        font-family: "Blinker", sans-serif;
-        font-size: 18px;
-        font-weight: 300;
-        line-height: 20px;
+      font-family: "Blinker", sans-serif;
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 20px;
   }
-
-  .Primary-button-container.hover {
-    transform: scale(1.01);
-}
 }

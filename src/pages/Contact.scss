@@ -175,13 +175,25 @@
   background-color: var(--colors-bg-color);
 
   @include desktop-secondary-button-default;
-  color: var(--colors-secondary-color-2);
+
+  /* placeholder color */
+  &::placeholder {
+    color: var(--colors-secondary-color-2);
+  }
+
+  /* typed text color becomes black */
+  &:not(:placeholder-shown) {
+    color: #000000;
+  }
+
   transition: border-color 0.3s ease;
+
   &:focus {
     outline: none;
     border: 1.3px solid;
     border-color: #000000; // only change border color
   }
+
   &:focus::placeholder {
     color: transparent; // disappears on focus
   }

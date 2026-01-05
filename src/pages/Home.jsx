@@ -1,5 +1,4 @@
-import React, { useEffect } from "react";
-import bgimg from "../assets/bg-img.png";
+import React, { useEffect, useState, useRef } from "react";
 import "./Home.scss";
 import ProjectCard from "../components/Project-card";
 import PrimaryButton from "../components/Primary-button";
@@ -7,9 +6,12 @@ import SectionTitle from "../components/Section-title";
 import aboutimg from "../assets/about.png";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer.jsx";
+import HeroModel from "../components/HeroModel";
 
 const Home = () => {
   const navigate = useNavigate();
+  const heroRef = useRef(null);
+  const [heroVisible, setHeroVisible] = useState(true); // Track if hero is on screen
 
   useEffect(() => {
     // Hero animation (still page load)
@@ -37,7 +39,7 @@ const Home = () => {
           }
         });
       },
-      { threshold: 0.2 } // Trigger when 20% visible
+      { threshold: 0.2 }
     );
 
     aboutElements.forEach((el) => el && observer.observe(el));
@@ -47,16 +49,27 @@ const Home = () => {
     };
   }, []);
 
+  // Intersection Observer to track hero visibility
+  useEffect(() => {
+    if (!heroRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setHeroVisible(entry.isIntersecting),
+      { threshold: 0 } // triggers as soon as any part enters/leaves viewport
+    );
+    observer.observe(heroRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="Homepage-container">
-      <div className="Hero-banner-container">
+      <div className="Hero-banner-container" ref={heroRef}>
         <div className="Hero-roles">
           <a>
             <span className="highlight">UI/UX DESIGNER</span> &{" "}
             <span className="highlight">FRONTEND DEVELOPER</span>
           </a>
         </div>
-        <img src={bgimg} alt="Dipak's Photo" />
+        {heroVisible && <HeroModel />} {/* Only render HeroModel when visible */}
         <div className="Hero-container">
           <div className="Hero-name">
             <a>
@@ -79,12 +92,12 @@ const Home = () => {
             <div className="About-section-text">
               <p>Hi, I'm Dipak Pahari.</p>
               <p>
-                I'm a UX/UI Designer with 1.5 years of experience creating
+                I'm a UX/UI Designer with decade years of experience creating
                 intuitive, modern interfaces for web and mobile applications. I
                 also have basic front-end skills in React, HTML, CSS, and
                 JavaScript, which help me understand how designs are implemented
                 in code. I'm currently pursuing my Bachelor's in Computer
-                Science at Divya Gyan College.
+                Application at Divya Gyan College.
               </p>
             </div>
             <PrimaryButton

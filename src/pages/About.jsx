@@ -176,12 +176,12 @@ function About() {
             <div className="AboutPage-About-section-text">
               <p>Hi, I'm Dipak Pahari.</p>
               <p>
-                I'm a UX/UI Designer with 1.5 years of experience creating
+                I'm a UX/UI Designer with decade years of experience creating
                 intuitive, modern interfaces for web and mobile applications. I
                 also have basic front-end skills in React, HTML, CSS, and
                 JavaScript, which help me understand how designs are implemented
                 in code. I'm currently pursuing my Bachelor's in Computer
-                Science at Divya Gyan College.
+                Application at Divya Gyan College.
               </p>
               <p>
                 I specialize in designing user-friendly, clean interfaces,

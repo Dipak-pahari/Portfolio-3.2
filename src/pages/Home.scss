@@ -73,12 +73,16 @@
 .Hero-container {
   display: flex;
   flex-direction: row;
-  z-index: 15;
   width: 100%;
   justify-content: space-between;
-  position: relative;
-  bottom: 15%;
   align-items: center;
+
+  position: absolute;
+  bottom: 10%; // slightly reduced for better proportional spacing
+  left: 50%; // center horizontally
+  transform: translateX(-50%); // horizontally center properly
+  padding: 0 42px;
+  z-index: 15;
 }
 
 .Hero-name {
@@ -227,9 +231,7 @@
   }
 
   .Hero-container {
-    position: relative;
-    bottom: 12%;
-    align-items: flex-end;
+    bottom: 8%;
   }
 
   .scroll-down-text {
@@ -299,9 +301,9 @@
   }
 
   .Hero-container {
-    position: relative;
-    bottom: -8%;
-    align-items: flex-end;
+    bottom: 6%; // reduce negative spacing
+    align-items: center; // center text on mobile
+    padding: 0 16px; // keep spacing consistent with container
   }
 
   .scroll-down-text {

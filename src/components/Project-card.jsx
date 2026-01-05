@@ -21,6 +21,11 @@ function ProjectRow({ project, index, selectedIndex, setSelectedIndex }) {
         <span>{project.type}</span>
         <span>{project.date}</span>
       </div>
+
+      {/*
+        Removed hover preview image/video
+      */}
+      
       {!isSelected && (
         <div className="preview-rectangle">
           {project.video ? (
@@ -32,6 +37,7 @@ function ProjectRow({ project, index, selectedIndex, setSelectedIndex }) {
           )}
         </div>
       )}
+      
     </div>
   );
 }
@@ -71,7 +77,11 @@ function Arrow({ direction, onClick }) {
       onMouseLeave={() => setHovered(false)}
       onClick={handleClick}
     >
-      <img src={direction === "left" ? Darrow : Larrow} alt="" style={imgStyle} />
+      <img
+        src={direction === "left" ? Darrow : Larrow}
+        alt=""
+        style={imgStyle}
+      />
     </div>
   );
 }
@@ -82,6 +92,8 @@ function ProjectBox({ project, onPrev, onNext, direction }) {
   const [currentProject, setCurrentProject] = useState(project);
   const [slideDirection, setSlideDirection] = useState("next");
 
+  //---------Auto Changing of project commented--------
+  /*
   useEffect(() => {
     if (project !== currentProject) {
       setSlideDirection(direction);
@@ -93,11 +105,21 @@ function ProjectBox({ project, onPrev, onNext, direction }) {
       return () => clearTimeout(timeout);
     }
   }, [project, direction]);
+  */
+
+  // Keep currentProject updated when selected manually
+  useEffect(() => {
+    setCurrentProject(project);
+  }, [project]);
 
   return (
     <div className="Project-box">
       <Arrow direction="left" onClick={onPrev} />
-      <div className={`Project-inside-box ${animating ? `slide-${slideDirection}` : "slide-in"}`}>
+      <div
+        className={`Project-inside-box ${
+          animating ? `slide-${slideDirection}` : "slide-in"
+        }`}
+      >
         <div className="Project-meta-container">
           <div className="Project-details-container">
             <span className="Date-container">{currentProject.date}</span>
@@ -107,35 +129,48 @@ function ProjectBox({ project, onPrev, onNext, direction }) {
               </div>
               <div className="Sub-details-list">
                 <div className="Sub-detail-container">
-                  <span className="Project-subtitle">{currentProject.typeLabel}:</span>
-                  <span className="Project-description">{currentProject.client}</span>
+                  <span className="Project-subtitle">
+                    {currentProject.typeLabel}:
+                  </span>
+                  <span className="Project-description">
+                    {currentProject.client}
+                  </span>
                 </div>
                 <div className="Sub-detail-container">
                   <span className="Project-subtitle">Role:</span>
-                  <span className="Project-description">{currentProject.role}</span>
+                  <span className="Project-description">
+                    {currentProject.role}
+                  </span>
                 </div>
-                {currentProject.live && currentProject.live !== "Unavailable" && (
-                  <div className="Sub-detail-container">
-                    <span className="Project-subtitle">Live Link:</span>
-                    <a
-                      href={currentProject.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="Project-description live-link"
-                    >
-                      Check it out
-                    </a>
-                  </div>
-                )}
+                {currentProject.live &&
+                  currentProject.live !== "Unavailable" && (
+                    <div className="Sub-detail-container">
+                      <span className="Project-subtitle">Live Link:</span>
+                      <a
+                        href={currentProject.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="Project-description live-link"
+                      >
+                        Check it out
+                      </a>
+                    </div>
+                  )}
               </div>
             </div>
           </div>
-          <PrimaryButton text="SEE DETAILS" onClick={() => navigate(currentProject.detailPage)} />
+          <PrimaryButton
+            text="SEE DETAILS"
+            onClick={() => navigate(currentProject.detailPage)}
+          />
         </div>
         <div className="project-image">
           <img src={currentProject.image} alt={currentProject.name} />
           <div className="mobile-project-button">
-            <PrimaryButton text="SEE DETAILS" onClick={() => navigate(currentProject.detailPage)} />
+            <PrimaryButton
+              text="SEE DETAILS"
+              onClick={() => navigate(currentProject.detailPage)}
+            />
           </div>
         </div>
       </div>
@@ -161,10 +196,13 @@ function ProjectCard() {
     setSelectedIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
   };
 
+  //---------Auto scroll commented--------
+  /*
   useEffect(() => {
     const interval = setInterval(() => handleNext(), 8000);
     return () => clearInterval(interval);
   }, []);
+  */
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -180,7 +218,10 @@ function ProjectCard() {
   }, []);
 
   return (
-    <div ref={containerRef} className={`Project-container ${isVisible ? "visible" : ""}`}>
+    <div
+      ref={containerRef}
+      className={`Project-container ${isVisible ? "visible" : ""}`}
+    >
       <SectionTitle title="PROJECT" />
       <div className="Project-card">
         <div className="Project-card-container">
@@ -201,7 +242,13 @@ function ProjectCard() {
               setSelectedIndex={setSelectedIndex}
             />
           ))}
-          <SecondaryButton text="VIEW ALL" onClick={(e) => { e.stopPropagation(); navigate("/project"); }} />
+          <SecondaryButton
+            text="VIEW ALL"
+            onClick={(e) => {
+              e.stopPropagation();
+              navigate("/project");
+            }}
+          />
         </div>
       </div>
     </div>

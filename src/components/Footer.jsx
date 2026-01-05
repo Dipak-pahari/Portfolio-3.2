@@ -89,7 +89,7 @@ function Footer() {
             LinkedIn <img src={FooterArrow} alt="Arrow" className="arrow" />
           </a>
         </div> 
-        <span>© 2025 Dipak Pahari · All Rights Reserved</span>
+        <span>© 2026 Dipak Pahari · All Rights Reserved</span>
       </div>
     </footer>
   );
