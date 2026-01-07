@@ -79,7 +79,7 @@ function ProjectDetail() {
           {/* ================= Breadcrumb ================= */}
         <div className="Breadcrumb-container reveal">
           <span
-            className="Breadcrumb-text"
+            className="Breadcrumb-text clickable-text"
             onClick={() => navigate("/project")}
           >
             ← Back to Projects

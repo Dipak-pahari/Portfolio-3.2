@@ -9,6 +9,18 @@
   color: var(--colors-primary-color-4);
 }
 
+.clickable-text {
+  cursor: pointer;             // shows pointer on hover
+  display: inline-block;
+  transition: color 0.2s ease, transform 0.1s ease;
+
+  &:hover {
+    color: var(--colors-primary-color-4);  // highlight color on hover
+    transform: translateX(-2px);           // subtle movement like a button
+  }
+}
+
+
 .reveal {
   opacity: 0;
   transform: translateY(40px);

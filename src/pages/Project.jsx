@@ -5,11 +5,11 @@ import projects from "../data/projects";
 import "./Project.scss";
 import Footer from "../components/Footer.jsx";
 
-const ProjectPageCard = ({ project, index }) => {
+const ProjectPageCard = ({ project, index, cursorRef }) => {
   const navigate = useNavigate();
   const cardRef = useRef(null);
 
-  // Entry animation on scroll
+  // Entry animation
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -24,6 +24,37 @@ const ProjectPageCard = ({ project, index }) => {
     if (cardRef.current) observer.observe(cardRef.current);
   }, []);
 
+  // Cursor logic
+  useEffect(() => {
+    const card = cardRef.current;
+    const cursor = cursorRef.current;
+    if (!card || !cursor) return;
+
+    const handleMouseMove = (e) => {
+      cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    };
+
+    const handleMouseEnter = () => {
+      card.style.cursor = "none"; // hide default cursor
+      cursor.style.display = "flex"; // show custom cursor
+    };
+
+    const handleMouseLeave = () => {
+      card.style.cursor = "pointer"; // restore cursor
+      cursor.style.display = "none"; // hide custom cursor
+    };
+
+    card.addEventListener("mousemove", handleMouseMove);
+    card.addEventListener("mouseenter", handleMouseEnter);
+    card.addEventListener("mouseleave", handleMouseLeave);
+
+    return () => {
+      card.removeEventListener("mousemove", handleMouseMove);
+      card.removeEventListener("mouseenter", handleMouseEnter);
+      card.removeEventListener("mouseleave", handleMouseLeave);
+    };
+  }, [cursorRef]);
+
   const handleCardClick = () => {
     navigate(project.detailPage);
   };
@@ -36,11 +67,11 @@ const ProjectPageCard = ({ project, index }) => {
       onClick={handleCardClick}
     >
       {/* Tags */}
-      {project.tags && project.tags.length > 0 && (
+      {project.tags?.length > 0 && (
         <div className="ProjectPage-Project-card-tags">
-          {project.tags.map((tag, index) => (
+          {project.tags.map((tag, idx) => (
             <div
-              key={index}
+              key={idx}
               className="ProjectPage-Project-tag"
               style={{ backgroundColor: tag.color }}
             >
@@ -70,9 +101,10 @@ const ProjectPageCard = ({ project, index }) => {
 };
 
 const Project = () => {
+  const cursorRef = useRef(null); // global cursor
+
   return (
     <div className="ProjectPage-project-container">
-      {/* Description */}
       <div className="ProjectPage-Project-description">
         <span>My Works</span>
         <span>
@@ -82,7 +114,6 @@ const Project = () => {
         </span>
       </div>
 
-      {/* Projects */}
       <div className="ProjectPage-allprojects-container">
         <SectionTitle title="ALL PROJECT" />
         <div className="ProjectPage-allprojects-grid">
@@ -91,12 +122,18 @@ const Project = () => {
               key={project.id}
               project={project}
               index={index}
+              cursorRef={cursorRef} // pass global cursor
             />
           ))}
         </div>
       </div>
 
       <Footer />
+
+      {/* Global glass-effect cursor */}
+      <div ref={cursorRef} className="glass-cursor">
+        View Project
+      </div>
     </div>
   );
 };

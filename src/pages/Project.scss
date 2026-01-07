@@ -1,5 +1,33 @@
 @use "../index" as *;
 
+/* Glass-effect cursor */
+.glass-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;  /* allow clicking through */
+  z-index: 9999;
+
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 8px 16px;
+  white-space: nowrap;
+
+  display: none; /* hidden by default */
+  align-items: center;
+  justify-content: center;
+
+  transform: translate(-50%, -50%);
+  transition: transform 0.03s ease; /* smooth movement */
+}
+
 /* =========================
    PAGE CONTAINER
 ========================= */
