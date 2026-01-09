@@ -19,7 +19,7 @@ import PrimaryButton_2 from "../components/SecondaryButton";
 import { useNavigate } from "react-router-dom";
 
 // PDFs
-import Resume from "../assets/DipakPahariResume.pdf";
+import Resume from "../assets/Resume - Dipak Pahari.pdf";
 import SRITYOGCertificate from "../assets/SRIYOGCertificate.pdf";
 import SRIYOGRecommendation from "../assets/SRIYOGRecommendation.pdf";
 import FigmaCertificate from "../assets/FigmaCertificate.pdf";
@@ -196,7 +196,7 @@ function About() {
               onClick={() => {
                 const link = document.createElement("a");
                 link.href = Resume;
-                link.download = "DipakPahariResume.pdf";
+                link.download = "Resume - Dipak Pahari.pdf";
                 link.click();
               }}
               className="AboutPage-Aboutbtn"
@@ -308,7 +308,7 @@ function About() {
             onClick={() => {
               const link = document.createElement("a");
               link.href = Resume;
-              link.download = "DipakPahariResume.pdf";
+              link.download = "Resume - Dipak Pahari.pdf";
               link.click();
             }}
           />
