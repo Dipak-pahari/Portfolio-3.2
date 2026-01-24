@@ -3,29 +3,55 @@
   <head>
     <meta charset="UTF-8" />
 
+    <!-- Responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Blinker:wght@100;200;300;400;600;700;800;900&family=Lexend:wght@100..900&display=swap" rel="stylesheet">
 
+    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-2025.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-2025.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon-2025.png">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Theme color for mobile -->
+    <meta name="theme-color" content="#4B0082" />
 
-    <!-- Google tag (gtag.js) -->
+    <!-- SEO: Description -->
+    <meta name="description" content="I am Dipak Pahari, a UX/UI Designer and Front-End Developer based in Nepal. Explore my professional portfolio, creative projects, and coding work." />
+
+    <!-- SEO: Keywords (All name + portfolio + project variations) -->
+    <meta name="keywords" content="
+Dipak Pahari, dipak pahari, DIPAK PAHARI, dipakPahari, Dipak, dipak, DIPAK, Pahari, pahari,
+Dipak Portfolio, dipak portfolio, DIPAK PORTFOLIO, Dipak Pahari Portfolio, dipak pahari portfolio, DIPAK PAHARI PORTFOLIO,
+portfolio of Dipak, portfolio dipak, dipakpahari, dipak-pahari, dipak_pahari,
+Dipak works, dipak works, DIPAK WORKS, Dipak Pahari works, dipak pahari works, DIPAK PAHARI WORKS,
+Dipak projects, dipak projects, DIPAK PROJECTS, Dipak Pahari projects, dipak pahari projects, DIPAK PAHARI PROJECTS,
+creative portfolio, creative portfolio Dipak, portfolio showcase, showcase Dipak, Dipak design portfolio, Dipak coding portfolio,
+UX/UI portfolio, Front-End portfolio, web design portfolio, design works, Dipak design works, Dipak coding works,
+portfolio 2026, portfolio 2025, personal portfolio, Dipak personal portfolio, Dipak Pahari personal portfolio,
+portfolio & projects Dipak, portfolio & works Dipak, Dipak UX/UI Designer portfolio, Dipak Front-End Developer portfolio,
+professional portfolio Dipak, Dipak creative projects, Dipak coding projects, Dipak professional works
+" />
+
+    <!-- Author -->
+    <meta name="author" content="Dipak Pahari" />
+
+    <!-- Robots -->
+    <meta name="robots" content="index, follow" />
+
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NPQWV3KHW4"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-NPQWV3KHW4');
     </script>
 
-    <title>Dipak Pahari</title>
-    <meta name="description" content="I am a UX/UI Designer and Front-End Developer based in Nepal. Explore my portfolio and projects." />
-
+    <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -39,9 +65,16 @@
       "jobTitle": "UX/UI Designer & Coder"
     }
     </script>
+
+    <!-- Title -->
+    <title>Dipak Pahari</title>
   </head>
-  <body>
+
+  <body style="font-family: 'Blinker', 'Lexend', sans-serif; margin:0; padding:0;">
+    <!-- React Root -->
     <div id="root"></div>
+
+    <!-- Main React Entry -->
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
